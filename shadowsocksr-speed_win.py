@@ -50,17 +50,6 @@ class DrawTable(object):
         return str(self.x)
 
 
-test_option = {}
-test_option['ping'] = test_option['network'] = test_option['speed'] = test_option['youtube'] = True
-max_cols = 0
-# 访问 youtube 网页加载时间大于设置时间直接退出不进行测速.解决高延迟的节点加载网页太慢问题
-youtube_timeout = 10
-# 使用 访问ip.sb获取外网ip的超时时间,判断节点是否能正常访问网页的依据
-network_timeout = 15
-# 测试所用端口
-ssr_port = 6665
-
-
 def connect_ssr(ssr):
     result = {
         'host': ssr['server'],
@@ -143,6 +132,60 @@ def close_ssr():
     subprocess.call('taskkill /f /im ShadowsocksR-dotnet4.0-speedtest.exe', stdout=subprocess.PIPE)
 
 
+def ssr2json(text):
+    print(text)
+    if text.startsWith('ssr://'):
+        text = text.slice(6)
+        ssrDecode(text)
+    elif text.startsWith('ss://'):
+        text = text.slice(5)
+        ssDecode(text)
+    return
+
+
+def ssrDecode(text):
+    ip = ""
+    port = ""
+    password = ""
+    group = ""
+    obfs = ""
+    method = ""
+    protocol = ""
+    remarks = ""
+    protoparam = ""
+    obfsparam = ""
+    group = ""
+    udpport = ""
+    uot = ""
+
+    return {
+        "server": "${ip}",
+        "server_port": "${port}",
+        "password": "${password}",
+        "obfs": "${obfs}",
+        "method": "${method}",
+        "protocol": "${protocol}"
+    }
+
+
+def ssDecode(text):
+    return {
+        "server": "${ip}",
+        "server_port": "${port}",
+        "password": "${password}",
+        "method": "${method}"
+    }
+
+
+test_option = {'ping': True, 'network': True, 'speed': True, 'youtube': True}
+max_cols = 0
+# 访问 youtube 网页加载时间大于设置时间直接退出不进行测速.解决高延迟的节点加载网页太慢问题
+youtube_timeout = 10
+# 使用 访问ip.sb获取外网ip的超时时间,判断节点是否能正常访问网页的依据
+network_timeout = 15
+# 测试所用端口
+ssr_port = 6665
+
 ssr_config = []
 speed_result = []
 
@@ -174,18 +217,18 @@ table = DrawTable()
 for x in ssr_config:
     # print(x)
     run_ssr()
-    write_json(x)
-    speed_result = connect_ssr(x)
-    os.system('cls')
-    table.append(
-        name=speed_result['remarks'],
-        ip=speed_result['ip'],
-        localPing=speed_result['ping_pc'],
-        ping=speed_result['ping'],
-        upload=speed_result['upload'],
-        download=speed_result['download'],
-        # youtube=speed_result['youtube'],
-        network=speed_result['state']
-    )
-    print(table.str())
-    close_ssr()
+write_json(x)
+speed_result = connect_ssr(x)
+os.system('cls')
+table.append(
+    name=speed_result['remarks'],
+    ip=speed_result['ip'],
+    localPing=speed_result['ping_pc'],
+    ping=speed_result['ping'],
+    upload=speed_result['upload'],
+    download=speed_result['download'],
+    youtube=speed_result['youtube'],
+    network=speed_result['state']
+)
+print(table.str())
+close_ssr()
