@@ -1,12 +1,17 @@
 import base64
 import json
+import os
 import re
 import socket
 import subprocess
+import urllib.request
+from sys import argv
 
 import requests
 import socks
 from prettytable import PrettyTable
+
+import ParseSsr
 
 default_socket = socket.socket
 
@@ -29,7 +34,7 @@ class DrawTable(object):
         self.x.sortby = "download"
 
     def append(self, *args, **kwargs):
-        if (kwargs):
+        if kwargs:
             content = [
                 kwargs['name'],
                 kwargs['ip'],
@@ -131,10 +136,10 @@ def close_ssr():
 def ssr2json(text):
     if text.startswith('ssr://'):
         text = text[6:]
-        print(ssrDecode(text))
+        return ssrDecode(text)
     elif text.startswith('ss://'):
         text = text[5:]
-        ssDecode(text)
+        return ssDecode(text)
     return
 
 
@@ -145,90 +150,98 @@ def ssrDecode(text):
     ip = arr[0]
     port = arr[1]
     password = result1
-    group = ""
     obfs = arr[4]
     method = arr[3]
     protocol = arr[2]
-    remarks = ""
-    protoparam = ""
-    obfsparam = ""
-    group = ""
-    udpport = ""
-    uot = ""
 
     return {
         "server": ip,
-        "server_port": port,
+        "port": port,
+        "protocol": protocol,
+        "method": method,
         "password": password,
         "obfs": obfs,
-        "method": method,
-        "protocol": protocol
+        "obfsparam": "",
+        "remarks": "1",
+        "group": "",
+        "protoparam": "",
+        "protocolparam": "",
+        "server_port": port
     }
 
 
 def ssDecode(text):
+    data = base64.b64decode(text.encode('utf-8'))
+    arr = str(data, encoding="utf8").split(':')
+    method = arr[0]
+    ip = arr[1].split('@')[1]
+    password = arr[1].split('@')[0]
+    port = arr[2]
     return {
-        "server": "${ip}",
-        "server_port": "${port}",
-        "password": "${password}",
-        "method": "${method}"
+        "server": ip,
+        "server_port": port,
+        "password": password,
+        "method": method
     }
 
 
-ssr2json(
-    "ssr://c2hkZG5zLnhtdHByb3RvLmNsb3VkbnMuYXNpYToxMTAyMzpvcmlnaW46YWVzLTI1Ni1jdHI6cGxhaW46WVdSVVVVWlYvP3JlbWFya3M9UUZOVFVsUlBUMHhmYzJoa1pHNXpMbmh0ZEhCeWIzUnZMbU5zYjNWa2JuTXVZWE5wWVEmZ3JvdXA9VTFOU1ZFOVBUQzVEVDAwZzVvNm82WUNC")
 test_option = {'ping': True, 'network': True, 'speed': True, 'youtube': True}
-# max_cols = 0
-# # 访问 youtube 网页加载时间大于设置时间直接退出不进行测速.解决高延迟的节点加载网页太慢问题
-# youtube_timeout = 10
-# # 使用 访问ip.sb获取外网ip的超时时间,判断节点是否能正常访问网页的依据
-# network_timeout = 15
-# # 测试所用端口
-# ssr_port = 6665
-#
-# ssr_config = []
-# speed_result = []
-#
-# if len(argv) > 1:
-#     print(argv[1])
-#     # file_path="win/gui-config.json"
-#     file_path = argv[1]
-#     file_config = None
-#     with open(file_path, 'r', encoding='utf-8') as f:
-#         file_config = json.load(f)
-#     # print(file_config['configs'])
-#     for x in file_config['configs']:
-#         ssr_config.append(x)
-#     # print(x)
-#     # print(x)
-# else:
-#     url = input("url:")
-#     headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'}
-#     f = urllib.request.Request(url, headers=headers)
-#     ssr_subscribe = urllib.request.urlopen(f).read().decode('utf-8')  # 获取ssr订阅链接中数据
-#     ssr_subscribe_decode = ParseSsr.base64_decode(ssr_subscribe)
-#     ssr_subscribe_decode = ssr_subscribe_decode.replace('\r', '')
-#     ssr_subscribe_decode = ssr_subscribe_decode.split('\n')
-#     for i in ssr_subscribe_decode:
-#         if (i):
-#             decdata = str(i[6:])  # 去掉"SSR://"K
-#             ssr_config.append(ParseSsr.parse(decdata))  # 解析"SSR://" 后边的base64的配置信息返回一个字典
-# table = DrawTable()
-# for x in ssr_config:
-#     # print(x)
-#     run_ssr()
-# write_json(x)
-# speed_result = connect_ssr(x)
-# os.system('cls')
-# table.append(
-#     name=speed_result['remarks'],
-#     ip=speed_result['ip'],
-#     localPing=speed_result['ping_pc'],
-#     ping=speed_result['ping'],
-#     upload=speed_result['upload'],
-#     download=speed_result['download'],
-#     youtube=speed_result['youtube'],
-#     network=speed_result['state']
-# )
-# print(table.str())
-# close_ssr()
+max_cols = 0
+# 访问 youtube 网页加载时间大于设置时间直接退出不进行测速.解决高延迟的节点加载网页太慢问题
+youtube_timeout = 10
+# 使用 访问ip.sb获取外网ip的超时时间,判断节点是否能正常访问网页的依据
+network_timeout = 15
+# 测试所用端口
+ssr_port = 6665
+
+ssr_config = []
+speed_result = []
+
+config = ssr2json(
+    "ssr://c2hkZG5zLnhtdHByb3RvLmNsb3VkbnMuYXNpYToxMTAyMzpvcmlnaW46YWVzLTI1Ni1jdHI6cGxhaW46WVdSVVVVWlYvP3JlbWFya3M9UUZOVFVsUlBUMHhmYzJoa1pHNXpMbmh0ZEhCeWIzUnZMbU5zYjNWa2JuTXVZWE5wWVEmZ3JvdXA9VTFOU1ZFOVBUQzVEVDAwZzVvNm82WUNC")
+
+ssr_config.append(config)
+
+if len(argv) > 1:
+    print(argv[1])
+    # file_path="win/gui-config.json"
+    file_path = argv[1]
+    file_config = None
+    with open(file_path, 'r', encoding='utf-8') as f:
+        file_config = json.load(f)
+    # print(file_config['configs'])
+    for x in file_config['configs']:
+        ssr_config.append(x)
+    # print(x)
+    # print(x)
+else:
+    url = input("url:")
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'}
+    f = urllib.request.Request(url, headers=headers)
+    ssr_subscribe = urllib.request.urlopen(f).read().decode('utf-8')  # 获取ssr订阅链接中数据
+    ssr_subscribe_decode = ParseSsr.base64_decode(ssr_subscribe)
+    ssr_subscribe_decode = ssr_subscribe_decode.replace('\r', '')
+    ssr_subscribe_decode = ssr_subscribe_decode.split('\n')
+    for i in ssr_subscribe_decode:
+        if (i):
+            decdata = str(i[6:])  # 去掉"SSR://"K
+            ssr_config.append(ParseSsr.parse(decdata))  # 解析"SSR://" 后边的base64的配置信息返回一个字典
+table = DrawTable()
+for x in ssr_config:
+    # print(x)
+    run_ssr()
+write_json(x)
+speed_result = connect_ssr(x)
+os.system('cls')
+table.append(
+    name=speed_result['remarks'],
+    ip=speed_result['ip'],
+    localPing=speed_result['ping_pc'],
+    ping=speed_result['ping'],
+    upload=speed_result['upload'],
+    download=speed_result['download'],
+    youtube=speed_result['youtube'],
+    network=speed_result['state']
+)
+print(table.str())
+close_ssr()
