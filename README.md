@@ -46,7 +46,7 @@ url: //输入入SSR订阅链接
 pip install PySocks prettytable requests 
 # 把master分支打包下载并进入程序目录  (cd C:\Users\Dell\Downloads\shadowsocksr-speed-master)
 # 使用配置文件测速
-python shadowsocksr-speed_win.py gui-config.json(加上配置文件后不用输入订阅链接)
+python shadowsocksr-speed_win.py win/gui-config.json(加上配置文件后不用输入订阅链接)
 # 使用SSR订阅链接测速
 python shadowsocksr-speed_win.py
 url: //输入入SSR订阅链接

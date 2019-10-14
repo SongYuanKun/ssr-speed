@@ -143,31 +143,75 @@ def ssr2json(text):
     return
 
 
+def trim(s):
+    if len(s) == 0:
+        return ''
+    if s[:1] == ' ':
+        return trim(s[1:])
+    elif s[-1:] == '':
+        return trim(s[:-1])
+    else:
+        return s
+
+
+def cleanupBase64(dirty):
+    if trim(dirty):
+        dirty = trim(dirty)
+    else:
+        dirty = dirty.replace('/^\s+|\s+$/g', '')
+    dirty = dirty.replace('/[^+\/0-9A-Za-z-_]/g', '')
+    if len(dirty) < 2:
+        return ''
+    while len(dirty) % 4 != 0:
+        dirty = dirty + '='
+    return dirty
+
+
 def ssrDecode(text):
+    text = cleanupBase64(text)
     data = base64.b64decode(text.encode('utf-8'))
-    arr = str(data, encoding="utf8").split(':')
-    result1 = base64.b64decode(arr[5].split('/?')[0].encode('utf-8'))
+    arr = str(data, encoding="utf8").split('/?')[0].split(':')
+    arr2 = str(data, encoding="utf8").split('/?')[1].split('&')
+    result1 = str(base64.b64decode(cleanupBase64(arr[5].split('/?')[0]).encode('utf-8')), encoding="utf8")
+    print("password=" + result1)
     ip = arr[0]
     port = arr[1]
     password = result1
     obfs = arr[4]
     method = arr[3]
     protocol = arr[2]
+    obfsparam = ""
+    protoparam = ""
+    remarks = ""
+    group = ""
 
-    return {
+    for fruit in arr2:  # 第二个实例
+        ls = fruit.split('=')
+        if ls[0] == 'obfsparam':
+            obfsparam = str(base64.b64decode(cleanupBase64(ls[1])), encoding="utf8")
+        elif ls[0] == 'protoparam':
+            protoparam = str(base64.b64decode(cleanupBase64(ls[1])), encoding="utf8")
+        elif ls[0] == 'remarks':
+            remarks = str(base64.b64decode(cleanupBase64(ls[1])), encoding="utf8")
+        elif ls[0] == 'group':
+            group = str(base64.b64decode(cleanupBase64(ls[1])), encoding="utf8")
+
+    res = {
         "server": ip,
         "port": port,
         "protocol": protocol,
         "method": method,
         "password": password,
         "obfs": obfs,
-        "obfsparam": "",
-        "remarks": "1",
-        "group": "",
-        "protoparam": "",
+        "obfsparam": obfsparam,
+        "remarks": remarks,
+        "group": group,
+        "protoparam": protoparam,
         "protocolparam": "",
         "server_port": port
     }
+    print(res)
+    return res
 
 
 def ssDecode(text):
@@ -198,50 +242,44 @@ ssr_config = []
 speed_result = []
 
 config = ssr2json(
-    "ssr://c2hkZG5zLnhtdHByb3RvLmNsb3VkbnMuYXNpYToxMTAyMzpvcmlnaW46YWVzLTI1Ni1jdHI6cGxhaW46WVdSVVVVWlYvP3JlbWFya3M9UUZOVFVsUlBUMHhmYzJoa1pHNXpMbmh0ZEhCeWIzUnZMbU5zYjNWa2JuTXVZWE5wWVEmZ3JvdXA9VTFOU1ZFOVBUQzVEVDAwZzVvNm82WUNC")
+    "ssr://ODUuMTE3LjIzNS4xNDc6NTY3ODpvcmlnaW46cmM0OnBsYWluOmJHNWpiaTV2Y21jZ2R6SXovP3JlbWFya3M9UUZOVFVsUlBUMHhmT0RVdU1URTNMakl6TlM0eE5EYyZncm91cD1VMU5TVkU5UFRDNURUMDBnNW82bzZZQ0I")
 
 ssr_config.append(config)
 
-if len(argv) > 1:
-    print(argv[1])
-    # file_path="win/gui-config.json"
-    file_path = argv[1]
-    file_config = None
-    with open(file_path, 'r', encoding='utf-8') as f:
-        file_config = json.load(f)
-    # print(file_config['configs'])
-    for x in file_config['configs']:
-        ssr_config.append(x)
-    # print(x)
-    # print(x)
-else:
-    url = input("url:")
-    headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'}
-    f = urllib.request.Request(url, headers=headers)
-    ssr_subscribe = urllib.request.urlopen(f).read().decode('utf-8')  # 获取ssr订阅链接中数据
-    ssr_subscribe_decode = ParseSsr.base64_decode(ssr_subscribe)
-    ssr_subscribe_decode = ssr_subscribe_decode.replace('\r', '')
-    ssr_subscribe_decode = ssr_subscribe_decode.split('\n')
-    for i in ssr_subscribe_decode:
-        if (i):
-            decdata = str(i[6:])  # 去掉"SSR://"K
-            ssr_config.append(ParseSsr.parse(decdata))  # 解析"SSR://" 后边的base64的配置信息返回一个字典
+file_path = "win/gui-config.json"
+file_config = None
+with open(file_path, 'r', encoding='utf-8') as f:
+    file_config = json.load(f)
+# print(file_config['configs'])
+for x in file_config['configs']:
+    ssr_config.append(x)
+# print(x)
+# print(x)
+# url = input("url:")
+# headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'}
+# f = urllib.request.Request(url, headers=headers)
+# ssr_subscribe = urllib.request.urlopen(f).read().decode('utf-8')  # 获取ssr订阅链接中数据
+# ssr_subscribe_decode = ParseSsr.base64_decode(ssr_subscribe)
+# ssr_subscribe_decode = ssr_subscribe_decode.replace('\r', '')
+# ssr_subscribe_decode = ssr_subscribe_decode.split('\n')
+# for i in ssr_subscribe_decode:
+#     if (i):
+#         decdata = str(i[6:])  # 去掉"SSR://"K
+#         ssr_config.append(ParseSsr.parse(decdata))  # 解析"SSR://" 后边的base64的配置信息返回一个字典
 table = DrawTable()
+run_ssr()
 for x in ssr_config:
-    # print(x)
-    run_ssr()
-write_json(x)
-speed_result = connect_ssr(x)
-os.system('cls')
-table.append(
-    name=speed_result['remarks'],
-    ip=speed_result['ip'],
-    localPing=speed_result['ping_pc'],
-    ping=speed_result['ping'],
-    upload=speed_result['upload'],
-    download=speed_result['download'],
-    youtube=speed_result['youtube'],
-    network=speed_result['state']
-)
+    speed_result = connect_ssr(x)
+    os.system('cls')
+    table.append(
+        name=speed_result['remarks'],
+        ip=speed_result['ip'],
+        localPing=speed_result['ping_pc'],
+        ping=speed_result['ping'],
+        upload=speed_result['upload'],
+        download=speed_result['download'],
+        youtube=speed_result['youtube'],
+        network=speed_result['state']
+    )
 print(table.str())
 close_ssr()
