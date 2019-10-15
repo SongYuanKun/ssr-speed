@@ -242,7 +242,7 @@ ssr_config = []
 speed_result = []
 
 config = ssr2json(
-    "ssr://ODUuMTE3LjIzNS4xNDc6NTY3ODpvcmlnaW46cmM0OnBsYWluOmJHNWpiaTV2Y21jZ2R6SXovP3JlbWFya3M9UUZOVFVsUlBUMHhmT0RVdU1URTNMakl6TlM0eE5EYyZncm91cD1VMU5TVkU5UFRDNURUMDBnNW82bzZZQ0I")
+    "ssr://MTc2LjM0LjE0Ljc3OjE3MzQwOm9yaWdpbjphZXMtMjU2LWNmYjpwbGFpbjpaR1ExVFZkcmVYWkZWMDVGLz9yZW1hcmtzPVUxTlNWRTlQVEY5T2IyUmxPbTUxYkd3Jmdyb3VwPVYxZFhMbE5UVWxSUFQwd3VRMDlO")
 
 ssr_config.append(config)
 
