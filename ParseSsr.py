@@ -1,4 +1,5 @@
 import base64
+import hashlib
 
 
 def ssr2json(text):
@@ -36,46 +37,50 @@ def cleanupBase64(dirty):
 
 
 def ssrDecode(text):
-    text = cleanupBase64(text)
-    data = base64.b64decode(text.encode('utf-8'))
-    arr = str(data, encoding="utf8").split('/?')[0].split(':')
-    arr2 = str(data, encoding="utf8").split('/?')[1].split('&')
-    result1 = str(base64.b64decode(cleanupBase64(arr[5].split('/?')[0]).encode('utf-8')), encoding="utf8")
+    md5 = hashlib.md5(text.encode('utf-8')).hexdigest().upper()
+    data = base64.urlsafe_b64decode(cleanupBase64(text)).decode('utf-8')
+    arr = data.split('/?')[0].split(':')
+    arr2 = data.split('/?')[1].split('&')
+    password = base64.urlsafe_b64decode(cleanupBase64(arr[5].split('/?')[0])).decode('utf-8')
     ip = arr[0]
     port = arr[1]
-    password = result1
     obfs = arr[4]
     method = arr[3]
     protocol = arr[2]
     obfsparam = ""
     protoparam = ""
     remarks = ""
+    remarks_base64 = ""
     group = ""
 
-    for fruit in arr2:  # 第二个实例
-        ls = fruit.split('=')
-        if ls[0] == 'obfsparam':
-            obfsparam = str(base64.b64decode(cleanupBase64(ls[1])), encoding="utf8")
-        elif ls[0] == 'protoparam':
-            protoparam = str(base64.b64decode(cleanupBase64(ls[1])), encoding="utf8")
-        elif ls[0] == 'remarks':
-            remarks = str(base64.b64decode(cleanupBase64(ls[1])), encoding="utf8")
-        elif ls[0] == 'group':
-            group = str(base64.b64decode(cleanupBase64(ls[1])), encoding="utf8")
-
+    for f in arr2:  # 第二个实例
+        kv = f.split('=')
+        v = base64.urlsafe_b64decode(cleanupBase64(kv[1])).decode('utf-8')
+        if kv[0] == 'obfsparam':
+            obfsparam = v
+        elif kv[0] == 'protoparam':
+            protoparam = v
+        elif kv[0] == 'remarks':
+            remarks = v
+            remarks_base64 = kv[1]
+        elif kv[0] == 'group':
+            group = v
     res = {
+        "remarks": remarks,
+        "id": md5,
         "server": ip,
-        "port": port,
-        "protocol": protocol,
-        "method": method,
+        "server_port": int(port),
+        "server_udp_port": 0,
         "password": password,
+        "method": method,
+        "protocol": protocol,
+        "protocolparam": protoparam,
         "obfs": obfs,
         "obfsparam": obfsparam,
-        "remarks": remarks,
+        "remarks_base64": remarks_base64,
         "group": group,
-        "protoparam": protoparam,
-        "protocolparam": "",
-        "server_port": port
+        "enable": True,
+        "udp_over_tcp": False
     }
     return res
 
@@ -93,3 +98,7 @@ def ssDecode(text):
         "password": password,
         "method": method
     }
+
+
+ssr2json(
+    "ssr://aGluZXQyLnB1ZmZ2aXAuY29tOjQ0MzphdXRoX2FlczEyOF9tZDU6Y2hhY2hhMjA6aHR0cF9zaW1wbGU6VUdGdlpuVS8_b2Jmc3BhcmFtPU0yTXlZV1EwTkRRM09TNXRhV055YjNOdlpuUXVZMjl0JnByb3RvcGFyYW09TkRRME56azZia2xwUzBsQyZyZW1hcmtzPVFGTlRVbFJQVDB4ZmFHbHVaWFF5TG5CMVptWjJhWEF1WTI5dCZncm91cD1VMU5TVkU5UFRDNURUMDBnNW82bzZZQ0I")

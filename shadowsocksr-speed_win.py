@@ -67,7 +67,7 @@ def connect_ssr(ssr):
             print("ping_test,localPing:", ping_pc[-1])
             result['ping_pc'] = ping_pc[-1]
 
-        socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 1081)
+        socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 6665)
         socket.socket = socks.socksocket
         if test_option['network']:
             ip = requests.get('http://api.ip.sb/ip', timeout=15).text.strip()
@@ -115,23 +115,31 @@ youtube_timeout = 10
 # 使用 访问ip.sb获取外网ip的超时时间,判断节点是否能正常访问网页的依据
 network_timeout = 15
 # 测试所用端口
-ssr_port = 1081
+ssr_port = 6665
 
 ssr_config = []
 speed_result = []
 
-config = ssr2json(
-    "ssr://aGt0Mi5wdWZmdmlwLmNvbTo0NDM6YXV0aF9hZXMxMjhfbWQ1OmNoYWNoYTIwOmh0dHBfc2ltcGxlOlVHRnZablUvP29iZnNwYXJhbT1NMk15WVdRME5EUTNPUzV0YVdOeWIzTnZablF1WTI5dCZwcm90b3BhcmFtPU5EUTBOems2YmtscFMwbEMmcmVtYXJrcz1RRk5UVWxSUFQweGZhR3QwTWk1d2RXWm1kbWx3TG1OdmJRJmdyb3VwPVUxTlNWRTlQVEM1RFQwMGc1bzZvNllDQg")
+to_test_list = [
+    "ssr://aGluZXQyLnB1ZmZ2aXAuY29tOjQ0MzphdXRoX2FlczEyOF9tZDU6Y2hhY2hhMjA6aHR0cF9zaW1wbGU6VUdGdlpuVS8_b2Jmc3BhcmFtPU0yTXlZV1EwTkRRM09TNXRhV055YjNOdlpuUXVZMjl0JnByb3RvcGFyYW09TkRRME56azZia2xwUzBsQyZyZW1hcmtzPVFGTlRVbFJQVDB4ZmFHbHVaWFF5TG5CMVptWjJhWEF1WTI5dCZncm91cD1VMU5TVkU5UFRDNURUMDBnNW82bzZZQ0I",
+    "ssr://anAtYXp1cmUtMS5wdWZmdmlwLmNvbTo0NDM6YXV0aF9hZXMxMjhfbWQ1OmNoYWNoYTIwOmh0dHBfc2ltcGxlOlVHRnZablUvP29iZnNwYXJhbT1NMk15WVdRME5EUTNPUzV0YVdOeWIzTnZablF1WTI5dCZwcm90b3BhcmFtPU5EUTBOems2YmtscFMwbEMmcmVtYXJrcz1RRk5UVWxSUFQweGZhbkF0WVhwMWNtVXRNUzV3ZFdabWRtbHdMbU52YlEmZ3JvdXA9VTFOU1ZFOVBUQzVEVDAwZzVvNm82WUNC",
+    "ssr://dXMtY24yZ2lhLTEucHVmZnZpcC5jb206NDQzOmF1dGhfYWVzMTI4X21kNTpjaGFjaGEyMDpodHRwX3NpbXBsZTpVR0Z2Wm5VLz9vYmZzcGFyYW09TTJNeVlXUTBORFEzT1M1dGFXTnliM052Wm5RdVkyOXQmcHJvdG9wYXJhbT1ORFEwTnprNmJrbHBTMGxDJnJlbWFya3M9UUZOVFVsUlBUMHhmZFhNdFkyNHlaMmxoTFRFdWNIVm1ablpwY0M1amIyMCZncm91cD1VMU5TVkU5UFRDNURUMDBnNW82bzZZQ0I",
+    "ssr://aGt0Mi5wdWZmdmlwLmNvbTo0NDM6YXV0aF9hZXMxMjhfbWQ1OmNoYWNoYTIwOmh0dHBfc2ltcGxlOlVHRnZablUvP29iZnNwYXJhbT1NMk15WVdRME5EUTNPUzV0YVdOeWIzTnZablF1WTI5dCZwcm90b3BhcmFtPU5EUTBOems2YmtscFMwbEMmcmVtYXJrcz1RRk5UVWxSUFQweGZhR3QwTWk1d2RXWm1kbWx3TG1OdmJRJmdyb3VwPVUxTlNWRTlQVEM1RFQwMGc1bzZvNllDQg"]
 
 file_path = "D:\SSR\gui-config.json"
 file_config = None
 with open(file_path, 'r', encoding='utf-8') as f:
     file_config = json.load(f)
 configs = file_config['configs']
-for x in configs:
-    if x['server'] == config['server'] and str(x['server_port']) == config['server_port']:
-        break
-    configs.append(config)
+
+for ssr_url in to_test_list:
+    config = ssr2json(ssr_url)
+    have_this = 0
+    for x in configs:
+        if x['server'] == config['server']:
+            have_this = 1
+    if have_this == 0:
+        configs.append(config)
 
 with open(file_path, 'w', encoding='utf-8') as f:
     json.dump(file_config, f, indent=2)
