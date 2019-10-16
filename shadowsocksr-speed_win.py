@@ -9,7 +9,7 @@ import socks
 from prettytable import PrettyTable
 
 from ParseSsr import ssr2json
-from get_config import queryFrom_SSR_SHARE
+from get_config import queryFrom_SSR_SHARE, queryFrom_youneed1, queryFrom_youneed2
 
 default_socket = socket.socket
 
@@ -122,6 +122,12 @@ ssr_config = []
 speed_result = []
 
 to_test_list = queryFrom_SSR_SHARE()
+
+to_test_list.append(queryFrom_youneed1())
+to_test_list.append(queryFrom_youneed2())
+
+print('to_test_urls=', to_test_list)
+
 file_path = "D:\SSR\gui-config.json"
 file_config = None
 with open(file_path, 'r', encoding='utf-8') as f:
