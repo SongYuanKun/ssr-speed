@@ -4,14 +4,10 @@ import os
 import re
 import socket
 import subprocess
-import urllib.request
-from sys import argv
 
 import requests
 import socks
 from prettytable import PrettyTable
-
-import ParseSsr
 
 default_socket = socket.socket
 
@@ -26,7 +22,6 @@ class DrawTable(object):
             "ping",
             "upload",
             "download",
-            "youtube",
             "network"
         ]
         self.x = PrettyTable(header)
@@ -42,7 +37,6 @@ class DrawTable(object):
                 kwargs['ping'],
                 kwargs['upload'],
                 kwargs['download'],
-                kwargs['youtube'],
                 kwargs['network'],
             ]
             self.x.add_row(content)
@@ -60,7 +54,6 @@ def connect_ssr(ssr):
         'upload': 0,
         'ping': 0,
         'ping_pc': 0,
-        'youtube': 0,
         'state': "Fail"
     }
     try:
@@ -73,7 +66,7 @@ def connect_ssr(ssr):
             print("ping_test,localPing:", ping_pc[-1])
             result['ping_pc'] = ping_pc[-1]
 
-        socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 6665)
+        socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 1081)
         socket.socket = socks.socksocket
         if test_option['network']:
             ip = requests.get('http://api.ip.sb/ip', timeout=15).text.strip()
@@ -124,13 +117,13 @@ def write_json(write_config):
 
 # 运行 ssr
 def run_ssr():
-    ssr_path = "win/ShadowsocksR-dotnet4.0-speedtest.exe"
+    ssr_path = "D:\SSR\ShadowsocksR-dotnet4.0.exe"
     subprocess.Popen(ssr_path)
 
 
 # 关闭ssr
 def close_ssr():
-    subprocess.call('taskkill /f /im ShadowsocksR-dotnet4.0-speedtest.exe', stdout=subprocess.PIPE)
+    subprocess.call('taskkill /f /im ShadowsocksR-dotnet4.0.exe', stdout=subprocess.PIPE)
 
 
 def ssr2json(text):
@@ -173,7 +166,6 @@ def ssrDecode(text):
     arr = str(data, encoding="utf8").split('/?')[0].split(':')
     arr2 = str(data, encoding="utf8").split('/?')[1].split('&')
     result1 = str(base64.b64decode(cleanupBase64(arr[5].split('/?')[0]).encode('utf-8')), encoding="utf8")
-    print("password=" + result1)
     ip = arr[0]
     port = arr[1]
     password = result1
@@ -210,7 +202,6 @@ def ssrDecode(text):
         "protocolparam": "",
         "server_port": port
     }
-    print(res)
     return res
 
 
@@ -236,22 +227,28 @@ youtube_timeout = 10
 # 使用 访问ip.sb获取外网ip的超时时间,判断节点是否能正常访问网页的依据
 network_timeout = 15
 # 测试所用端口
-ssr_port = 6665
+ssr_port = 1081
 
 ssr_config = []
 speed_result = []
 
 config = ssr2json(
-    "ssr://MTc2LjM0LjE0Ljc3OjE3MzQwOm9yaWdpbjphZXMtMjU2LWNmYjpwbGFpbjpaR1ExVFZkcmVYWkZWMDVGLz9yZW1hcmtzPVUxTlNWRTlQVEY5T2IyUmxPbTUxYkd3Jmdyb3VwPVYxZFhMbE5UVWxSUFQwd3VRMDlO")
+    "ssr://aGt0Mi5wdWZmdmlwLmNvbTo0NDM6YXV0aF9hZXMxMjhfbWQ1OmNoYWNoYTIwOmh0dHBfc2ltcGxlOlVHRnZablUvP29iZnNwYXJhbT1NMk15WVdRME5EUTNPUzV0YVdOeWIzTnZablF1WTI5dCZwcm90b3BhcmFtPU5EUTBOems2YmtscFMwbEMmcmVtYXJrcz1RRk5UVWxSUFQweGZhR3QwTWk1d2RXWm1kbWx3TG1OdmJRJmdyb3VwPVUxTlNWRTlQVEM1RFQwMGc1bzZvNllDQg")
 
-ssr_config.append(config)
-
-file_path = "win/gui-config.json"
+file_path = "D:\SSR\gui-config.json"
 file_config = None
 with open(file_path, 'r', encoding='utf-8') as f:
     file_config = json.load(f)
-# print(file_config['configs'])
-for x in file_config['configs']:
+configs = file_config['configs']
+for x in configs:
+    if x['server'] == config['server'] and str(x['server_port']) == config['server_port']:
+        break
+    configs.append(config)
+
+with open(file_path, 'w', encoding='utf-8') as f:
+    json.dump(file_config, f, indent=2)
+
+for x in configs:
     ssr_config.append(x)
 # print(x)
 # print(x)
@@ -278,7 +275,6 @@ for x in ssr_config:
         ping=speed_result['ping'],
         upload=speed_result['upload'],
         download=speed_result['download'],
-        youtube=speed_result['youtube'],
         network=speed_result['state']
     )
 print(table.str())
