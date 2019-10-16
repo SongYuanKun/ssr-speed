@@ -9,6 +9,7 @@ import socks
 from prettytable import PrettyTable
 
 from ParseSsr import ssr2json
+from get_config import queryFrom_SSR_SHARE
 
 default_socket = socket.socket
 
@@ -120,12 +121,7 @@ ssr_port = 6665
 ssr_config = []
 speed_result = []
 
-to_test_list = [
-    "ssr://aGluZXQyLnB1ZmZ2aXAuY29tOjQ0MzphdXRoX2FlczEyOF9tZDU6Y2hhY2hhMjA6aHR0cF9zaW1wbGU6VUdGdlpuVS8_b2Jmc3BhcmFtPU0yTXlZV1EwTkRRM09TNXRhV055YjNOdlpuUXVZMjl0JnByb3RvcGFyYW09TkRRME56azZia2xwUzBsQyZyZW1hcmtzPVFGTlRVbFJQVDB4ZmFHbHVaWFF5TG5CMVptWjJhWEF1WTI5dCZncm91cD1VMU5TVkU5UFRDNURUMDBnNW82bzZZQ0I",
-    "ssr://anAtYXp1cmUtMS5wdWZmdmlwLmNvbTo0NDM6YXV0aF9hZXMxMjhfbWQ1OmNoYWNoYTIwOmh0dHBfc2ltcGxlOlVHRnZablUvP29iZnNwYXJhbT1NMk15WVdRME5EUTNPUzV0YVdOeWIzTnZablF1WTI5dCZwcm90b3BhcmFtPU5EUTBOems2YmtscFMwbEMmcmVtYXJrcz1RRk5UVWxSUFQweGZhbkF0WVhwMWNtVXRNUzV3ZFdabWRtbHdMbU52YlEmZ3JvdXA9VTFOU1ZFOVBUQzVEVDAwZzVvNm82WUNC",
-    "ssr://dXMtY24yZ2lhLTEucHVmZnZpcC5jb206NDQzOmF1dGhfYWVzMTI4X21kNTpjaGFjaGEyMDpodHRwX3NpbXBsZTpVR0Z2Wm5VLz9vYmZzcGFyYW09TTJNeVlXUTBORFEzT1M1dGFXTnliM052Wm5RdVkyOXQmcHJvdG9wYXJhbT1ORFEwTnprNmJrbHBTMGxDJnJlbWFya3M9UUZOVFVsUlBUMHhmZFhNdFkyNHlaMmxoTFRFdWNIVm1ablpwY0M1amIyMCZncm91cD1VMU5TVkU5UFRDNURUMDBnNW82bzZZQ0I",
-    "ssr://aGt0Mi5wdWZmdmlwLmNvbTo0NDM6YXV0aF9hZXMxMjhfbWQ1OmNoYWNoYTIwOmh0dHBfc2ltcGxlOlVHRnZablUvP29iZnNwYXJhbT1NMk15WVdRME5EUTNPUzV0YVdOeWIzTnZablF1WTI5dCZwcm90b3BhcmFtPU5EUTBOems2YmtscFMwbEMmcmVtYXJrcz1RRk5UVWxSUFQweGZhR3QwTWk1d2RXWm1kbWx3TG1OdmJRJmdyb3VwPVUxTlNWRTlQVEM1RFQwMGc1bzZvNllDQg"]
-
+to_test_list = queryFrom_SSR_SHARE()
 file_path = "D:\SSR\gui-config.json"
 file_config = None
 with open(file_path, 'r', encoding='utf-8') as f:
