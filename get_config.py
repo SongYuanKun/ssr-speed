@@ -1,37 +1,38 @@
 import logging
 import re
-from urllib.request import ProxyHandler, build_opener
 
+import requests
 from bs4 import BeautifulSoup
 
 logging.basicConfig(level=logging.INFO)
 
-headers = {
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-    'accept-encoding': 'gzip, deflate, br',
-    'accept-language': 'zh-CN,zh;q=0.9',
-    'cache-control': 'no-cache',
-    'cookie': '__cfduid=d15534a5fedadd9770b7b73227bcad2b61570850521; _ga=GA1.2.1193099936.1570850527; PHPSESSID=9fp7gag838u40fjc106lerpvcq; _gid=GA1.2.349119984.1571230574; _gat_gtag_UA_138692554_1=1',
-    'pragma': 'no-cache',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'none',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': 1,
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
-}
-proxy_handler = ProxyHandler({
+proxy_handler = {
     'http': '127.0.0.1:1080',
     'https': '127.0.0.1:1080'
-})
-opener = build_opener(proxy_handler)
+}
 
 
 def queryFrom_SSR_SHARE():
     url = 'https://t.me/s/gyjclub'
-    response = opener.open(url)
 
-    html = response.read().decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                             "").replace(
+    headers = {
+        'Host': 't.me',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        'Connection': 'keep-alive',
+        'Cookie': '_ga=GA1.2.1088835183.1570852098; _gid=GA1.2.369184814.1571203202; stel_ssid=8ac98d52465c9f8e20_15762411972854688158',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'none',
+        'Sec-Fetch-User': '?1',
+        'Upgrade-Insecure-Requests': '1',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
+    }
+
+    response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=20)
+
+    html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
+                                                                                                              "").replace(
         "\\/", "/").replace("/\"", "\"")
     html = BeautifulSoup(html, 'html5lib')
     itemList = html.find_all("div", class_="tgme_widget_message_text js-message_text")
@@ -48,10 +49,20 @@ def queryFrom_SSR_SHARE():
 
 def queryFrom_youneed1():
     url = 'https://www.youneed.win/free-ssr'
-    response = opener.open(url)
+    headers = {
+        'authority': 'www.youneed.win',
+        'referer': 'https://www.youneed.win/free-ssr',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
+    }
 
-    html = response.read().decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                             "").replace(
+    response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=20)
+
+    html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
+                                                                                                              "").replace(
         "\\/", "/").replace("/\"", "\"")
     html = BeautifulSoup(html, 'html5lib')
     itemList = html.find_all("a", string=re.compile('右键复制链接'))
@@ -68,19 +79,29 @@ def queryFrom_youneed1():
 
 def queryFrom_youneed2():
     url = 'https://www.youneed.win/free-ssr/2'
-    response = opener.open(url)
+    headers = {
+        'authority': 'www.youneed.win',
+        'referer': 'https://www.youneed.win/free-ssr',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
+    }
 
-    html = response.read().decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                             "").replace(
+    response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
+
+    html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
+                                                                                                              "").replace(
         "\\/", "/").replace("/\"", "\"")
     html = BeautifulSoup(html, 'html5lib')
-    itemList = html.find_all("a", string=re.compile('右键复制链接'))
+    item_list = html.find_all("a", string=re.compile('右键复制链接'))
 
     to_test_urls = []
 
-    for item in itemList:
-        ssrHtml = item['href']
-        if ssrHtml.startswith("ss"):
-            to_test_urls.append(ssrHtml)
+    for item in item_list:
+        ssr_html = item['href']
+        if ssr_html.startswith("ss"):
+            to_test_urls.append(ssr_html)
 
     return to_test_urls

@@ -1,5 +1,4 @@
 import json
-import os
 import re
 import socket
 import subprocess
@@ -123,8 +122,8 @@ speed_result = []
 
 to_test_list = queryFrom_SSR_SHARE()
 
-to_test_list.append(queryFrom_youneed1())
-to_test_list.append(queryFrom_youneed2())
+to_test_list.extend(queryFrom_youneed1())
+to_test_list.extend(queryFrom_youneed2())
 
 print('to_test_urls=', to_test_list)
 
@@ -153,18 +152,19 @@ run_ssr()
 
 false_configs = []
 
-for x in ssr_config:
-    speed_result = connect_ssr(x)
-    if speed_result['state'] != 'Success':
-        false_configs.append(x)
-    os.system('cls')
-    table.append(
-        name=speed_result['remarks'],
-        ip=speed_result['ip'],
-        localPing=speed_result['ping_pc'],
-        ping=speed_result['ping'],
-        upload=speed_result['upload'],
-        download=speed_result['download'],
-        network=speed_result['state']
-    )
-print(table.str())
+# 测速感觉有点多余
+# for x in ssr_config:
+#     speed_result = connect_ssr(x)
+#     if speed_result['state'] != 'Success':
+#         false_configs.append(x)
+#     os.system('cls')
+#     table.append(
+#         name=speed_result['remarks'],
+#         ip=speed_result['ip'],
+#         localPing=speed_result['ping_pc'],
+#         ping=speed_result['ping'],
+#         upload=speed_result['upload'],
+#         download=speed_result['download'],
+#         network=speed_result['state']
+#     )
+# print(table.str())
