@@ -100,5 +100,7 @@ def ssDecode(text):
     }
 
 
-ssr2json(
-    "ssr://aGluZXQyLnB1ZmZ2aXAuY29tOjQ0MzphdXRoX2FlczEyOF9tZDU6Y2hhY2hhMjA6aHR0cF9zaW1wbGU6VUdGdlpuVS8_b2Jmc3BhcmFtPU0yTXlZV1EwTkRRM09TNXRhV055YjNOdlpuUXVZMjl0JnByb3RvcGFyYW09TkRRME56azZia2xwUzBsQyZyZW1hcmtzPVFGTlRVbFJQVDB4ZmFHbHVaWFF5TG5CMVptWjJhWEF1WTI5dCZncm91cD1VMU5TVkU5UFRDNURUMDBnNW82bzZZQ0I")
+if __name__ == '__main__':
+    result = ssr2json(
+        "ss://YWVzLTI1Ni1jZmI6OWQ2Y2NlYWEzNzNiZjJjOGFjYjIyZTYwYjZhNThiZTZANDUuNTYuMTAxLjEyMzo0NDM=")
+    print(result)
