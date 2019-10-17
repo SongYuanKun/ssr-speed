@@ -4,7 +4,7 @@ import subprocess
 
 from bin.ParseSsr import ssr2json
 from bin.get_config import queryFrom_SSR_SHARE, queryFrom_youneed1, queryFrom_youneed2
-from bin.my_speed_test import test_ssr
+from bin.my_speed_test import test_ssr, table
 
 default_socket = socket.socket
 
@@ -52,6 +52,6 @@ if __name__ == '__main__':
                 have_this = 1
         if have_this == 0 and test_ssr(config):
             configs.append(config)
-
+    print(table.str())
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(file_config, f, indent=2)

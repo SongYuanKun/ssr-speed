@@ -1,19 +1,21 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_hkt2.puffvip.com",
-            "id": "F47BE256D1E8ED50D02E9228AEB4DF05",
-            "server": "hkt2.puffvip.com",
-            "server_port": 443,
+            "remarks": "\u672a\u77e5",
+            "id": "5CE3BF091660DCD3AD46662C16B25A94",
+            "server": "45.79.32.223",
+            "server_port": 20421,
             "server_udp_port": 0,
-            "password": "Paofu",
-            "method": "chacha20",
-            "protocol": "auth_aes128_md5",
-            "protocolparam": "44479:nIiKIB",
-            "obfs": "http_simple",
-            "obfsparam": "3c2ad44479.microsoft.com",
-            "remarks_base64": "QFNTUlRPT0xfaGt0Mi5wdWZmdmlwLmNvbQ",
-            "group": "SSRTOOL.COM \u63a8\u9001"
+            "password": "729dGslW3Xyf",
+            "method": "aes-256-cfb",
+            "protocol": "origin",
+            "protocolparam": "",
+            "obfs": "plain",
+            "obfsparam": "",
+            "remarks_base64": "5pyq55+l",
+            "group": "WWW.YOUNEED.WIN",
+            "enable": true,
+            "udp_over_tcp": false
         }
     ],
     "index": 0,

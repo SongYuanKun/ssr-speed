@@ -141,7 +141,6 @@ def test_ssr(config):
         # youtube=speed_result['youtube'],
         network=speed_result['state']
     )
-    print(table.str())
     close_ssr()
     return speed_result['state'] == 'Success'
 
