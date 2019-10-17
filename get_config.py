@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 logging.basicConfig(level=logging.INFO)
 
 proxy_handler = {
-    'http': '127.0.0.1:1080',
-    'https': '127.0.0.1:1080'
+    'http': '127.0.0.1:6665',
+    'https': '127.0.0.1:6665'
 }
 
 
@@ -29,20 +29,21 @@ def queryFrom_SSR_SHARE():
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
 
-    response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=20)
-
-    html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                              "").replace(
-        "\\/", "/").replace("/\"", "\"")
-    html = BeautifulSoup(html, 'html5lib')
-    itemList = html.find_all("div", class_="tgme_widget_message_text js-message_text")
-
     to_test_urls = []
+    try:
+        response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
 
-    for item in itemList:
-        ssrHtml = item.get_text().strip()
-        if ssrHtml.startswith("ss"):
-            to_test_urls.append(ssrHtml)
+        html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
+                                                                                                                  "").replace(
+            "\\/", "/").replace("/\"", "\"")
+        html = BeautifulSoup(html, 'html5lib')
+        item_list = html.find_all("a", string=re.compile('右键复制链接'))
+        for item in item_list:
+            ssr_html = item['href']
+            if ssr_html.startswith("ss"):
+                to_test_urls.append(ssr_html)
+    except Exception as e:
+        logging.error("SSR_SHARE请求失败", e)
 
     return to_test_urls
 
@@ -50,7 +51,6 @@ def queryFrom_SSR_SHARE():
 def queryFrom_youneed1():
     url = 'https://www.youneed.win/free-ssr'
     headers = {
-        'authority': 'www.youneed.win',
         'referer': 'https://www.youneed.win/free-ssr',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
         'Accept-Language': 'zh-CN,zh;q=0.9',
@@ -59,20 +59,21 @@ def queryFrom_youneed1():
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
 
-    response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=20)
-
-    html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                              "").replace(
-        "\\/", "/").replace("/\"", "\"")
-    html = BeautifulSoup(html, 'html5lib')
-    itemList = html.find_all("a", string=re.compile('右键复制链接'))
-
     to_test_urls = []
+    try:
+        response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
 
-    for item in itemList:
-        ssrHtml = item['href']
-        if ssrHtml.startswith("ss"):
-            to_test_urls.append(ssrHtml)
+        html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
+                                                                                                                  "").replace(
+            "\\/", "/").replace("/\"", "\"")
+        html = BeautifulSoup(html, 'html5lib')
+        item_list = html.find_all("a", string=re.compile('右键复制链接'))
+        for item in item_list:
+            ssr_html = item['href']
+            if ssr_html.startswith("ss"):
+                to_test_urls.append(ssr_html)
+    except Exception as e:
+        logging.error("youneed.win1请求失败", e)
 
     return to_test_urls
 
@@ -80,7 +81,6 @@ def queryFrom_youneed1():
 def queryFrom_youneed2():
     url = 'https://www.youneed.win/free-ssr/2'
     headers = {
-        'authority': 'www.youneed.win',
         'referer': 'https://www.youneed.win/free-ssr',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
         'Accept-Language': 'zh-CN,zh;q=0.9',
@@ -89,19 +89,20 @@ def queryFrom_youneed2():
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
 
-    response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
-
-    html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                              "").replace(
-        "\\/", "/").replace("/\"", "\"")
-    html = BeautifulSoup(html, 'html5lib')
-    item_list = html.find_all("a", string=re.compile('右键复制链接'))
-
     to_test_urls = []
+    try:
+        response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
 
-    for item in item_list:
-        ssr_html = item['href']
-        if ssr_html.startswith("ss"):
-            to_test_urls.append(ssr_html)
+        html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
+                                                                                                                  "").replace(
+            "\\/", "/").replace("/\"", "\"")
+        html = BeautifulSoup(html, 'html5lib')
+        item_list = html.find_all("a", string=re.compile('右键复制链接'))
+        for item in item_list:
+            ssr_html = item['href']
+            if ssr_html.startswith("ss"):
+                to_test_urls.append(ssr_html)
+    except Exception as e:
+        logging.error("youneed.win2请求失败", e)
 
     return to_test_urls
