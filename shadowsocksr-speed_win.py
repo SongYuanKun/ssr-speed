@@ -27,8 +27,6 @@ if __name__ == '__main__':
     youtube_timeout = 10
     # 使用 访问ip.sb获取外网ip的超时时间,判断节点是否能正常访问网页的依据
     network_timeout = 15
-    # 测试所用端口
-    ssr_port = 6665
 
     ssr_config = []
     speed_result = []

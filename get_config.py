@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 logging.basicConfig(level=logging.INFO)
 
 proxy_handler = {
-    'http': '127.0.0.1:6665',
-    'https': '127.0.0.1:6665'
+    'http': '127.0.0.1:1081',
+    'https': '127.0.0.1:1081'
 }
 
 
