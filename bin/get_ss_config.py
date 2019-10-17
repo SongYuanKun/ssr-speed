@@ -11,7 +11,8 @@ proxy_handler = {
 
 
 def query_from_free_ss():
-    url = 'https://free-ss.site/'
+    url = 'https://www.baidu.com/'
+    # url = 'https://free-ss.site/'
 
     headers = {
         'authority': 'free-ss.site',
@@ -33,19 +34,19 @@ def query_from_free_ss():
     to_test_urls = []
     try:
 
-        service_args = [
-            '--proxy=https://127.0.0.1:1081'
-            '--proxy-type=https'
-        ]
-        driver = webdriver.PhantomJS(executable_path='../win/phantomjs.exe', service_args=service_args)
-        driver.get(url)
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--proxy=https://127.0.0.1:1081')
+        chrome_options.add_argument('--proxy-type=https')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
+        driver = webdriver.Chrome(executable_path='../win/chromedriver.exe', options=chrome_options)
         driver.implicitly_wait(30)
         # 设置30秒页面超时返回，类似于requests.get()的timeout选项，driver.get()没有timeout选项
         driver.set_page_load_timeout(30)
         # 获取网页资源（获取到的是网页所有数据）
-        html = driver.page_source
+        driver.get(url)
+        print(driver.page_source)
         driver.quit()
-        print(html)
     except Exception as e:
         logging.error("free_ss请求失败", e)
 
