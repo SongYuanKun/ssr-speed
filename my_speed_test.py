@@ -126,10 +126,10 @@ def close_ssr():
 table = DrawTable()
 
 
-def test_one(x):
+def test_ssr(config):
     run_ssr()
-    write_json(x)
-    speed_result = connect_ssr(x)
+    write_json(config)
+    speed_result = connect_ssr(config)
     os.system('cls')
     table.append(
         name=speed_result['remarks'],
@@ -143,3 +143,23 @@ def test_one(x):
     )
     print(table.str())
     close_ssr()
+    return speed_result['state'] == 'Success'
+
+
+if __name__ == '__main__':
+    x = {
+        "remarks": "@SSRTOOL_hkt2.puffvip.com",
+        "id": "F47BE256D1E8ED50D02E9228AEB4DF05",
+        "server": "hkt2.puffvip.com",
+        "server_port": 443,
+        "server_udp_port": 0,
+        "password": "Paofu",
+        "method": "chacha20",
+        "protocol": "auth_aes128_md5",
+        "protocolparam": "44479:nIiKIB",
+        "obfs": "http_simple",
+        "obfsparam": "3c2ad44479.microsoft.com",
+        "remarks_base64": "QFNTUlRPT0xfaGt0Mi5wdWZmdmlwLmNvbQ",
+        "group": "SSRTOOL.COM 推送"
+    }
+    test_ssr(x)

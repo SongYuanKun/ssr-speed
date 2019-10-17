@@ -4,6 +4,7 @@ import subprocess
 
 from ParseSsr import ssr2json
 from get_config import queryFrom_SSR_SHARE, queryFrom_youneed1, queryFrom_youneed2
+from my_speed_test import test_ssr
 
 default_socket = socket.socket
 
@@ -49,7 +50,7 @@ if __name__ == '__main__':
         for x in configs:
             if x['server'] == config['server']:
                 have_this = 1
-        if have_this == 0:
+        if have_this == 0 and test_ssr(config):
             configs.append(config)
 
     with open(file_path, 'w', encoding='utf-8') as f:
