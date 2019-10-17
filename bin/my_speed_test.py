@@ -8,7 +8,7 @@ import requests
 import socks
 from prettytable import PrettyTable
 
-from curses_test import test_option
+from bin.curses_test import test_option
 
 
 class DrawTable(object):
@@ -73,7 +73,7 @@ def connect_ssr(ssr):
             print("network_test,ip:", result['ip'])
 
         if test_option['speed']:
-            import speedtest
+            from bin import speedtest
             s = speedtest.Speedtest()
             s.get_best_server()
             s.download()
@@ -97,7 +97,7 @@ def connect_ssr(ssr):
 
 def write_json(write_config):
     # 打开ssr config json
-    json_path = "win/gui-config.json"
+    json_path = "../win/gui-config.json"
     with open(json_path, 'r', encoding='utf-8') as f:
         json_config = json.load(f)
     # 清空configs列表
@@ -114,7 +114,7 @@ def write_json(write_config):
 
 # 运行 ssr
 def run_ssr():
-    ssr_path = "win/ShadowsocksR-dotnet4.0-speedtest.exe"
+    ssr_path = "../win/ShadowsocksR-dotnet4.0-speedtest.exe"
     subprocess.Popen(ssr_path)
 
 

@@ -1,22 +1,11 @@
-import urllib.request
-import base64
 # import shadowsocksr.shadowsocks
-import os
-import time
-import requests
-import ParseSsr #https://www.jianshu.com/p/81b1632bea7f
-import re
-import youtube_speed
-from prettytable import PrettyTable
 
-import youtube_speed
+from bin import youtube_speed
 
 import socket
 import socks
-import time
-import subprocess
-import signal
-# import shlex 
+
+# import shlex
 
 default_socket = socket.socket
 socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 1080)

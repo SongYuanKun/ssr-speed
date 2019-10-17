@@ -1,14 +1,10 @@
 import urllib.request
-import base64
 # import shadowsocksr.shadowsocks
-import os
-import time
 import requests
-import ParseSsr #https://www.jianshu.com/p/81b1632bea7f
+from bin import ParseSsr, youtube_speed
 import re
-import youtube_speed
 from prettytable import PrettyTable
-from colorama import init, Fore, Back, Style
+from colorama import init, Fore
 
 import curses
 import sys
@@ -279,7 +275,7 @@ def connect_ssr(ssr):
         print("network_test,ip:",result['ip'])
 
     if test_option['speed']:
-        import speedtest
+        from bin import speedtest
         s = speedtest.Speedtest()
         s.get_best_server()
         s.download()
@@ -295,7 +291,7 @@ def connect_ssr(ssr):
 
     if test_option['youtube']:
         socket.socket=default_socket
-        youtube=youtube_speed.test_speed(port,youtube_timeout)
+        youtube= youtube_speed.test_speed(port, youtube_timeout)
         youtube=int(re.sub("\D", "", youtube))
         result['youtube']=youtube
         print("youtube_test,speed:",youtube)

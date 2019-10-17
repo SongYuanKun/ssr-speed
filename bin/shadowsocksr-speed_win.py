@@ -2,9 +2,9 @@ import json
 import socket
 import subprocess
 
-from ParseSsr import ssr2json
-from get_config import queryFrom_SSR_SHARE, queryFrom_youneed1, queryFrom_youneed2
-from my_speed_test import test_ssr
+from bin.ParseSsr import ssr2json
+from bin.get_config import queryFrom_SSR_SHARE, queryFrom_youneed1, queryFrom_youneed2
+from bin.my_speed_test import test_ssr
 
 default_socket = socket.socket
 
