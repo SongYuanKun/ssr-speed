@@ -55,4 +55,3 @@ if __name__ == '__main__':
 
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(file_config, f, indent=2)
-    run_ssr()

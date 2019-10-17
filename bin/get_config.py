@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 logging.basicConfig(level=logging.INFO)
 
 proxy_handler = {
-    'http': '127.0.0.1:1081',
-    'https': '127.0.0.1:1081'
+    'http': '127.0.0.1:1080',
+    'https': '127.0.0.1:1080'
 }
 
 
@@ -21,7 +21,6 @@ def queryFrom_SSR_SHARE():
         'Accept-Encoding': 'gzip, deflate, br',
         'Accept-Language': 'zh-CN,zh;q=0.9',
         'Connection': 'keep-alive',
-        'Cookie': '_ga=GA1.2.1088835183.1570852098; _gid=GA1.2.369184814.1571203202; stel_ssid=8ac98d52465c9f8e20_15762411972854688158',
         'Sec-Fetch-Mode': 'navigate',
         'Sec-Fetch-Site': 'none',
         'Sec-Fetch-User': '?1',
