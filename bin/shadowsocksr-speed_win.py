@@ -34,8 +34,8 @@ if __name__ == '__main__':
 
     to_test_list = queryFrom_SSR_SHARE()
 
-    # to_test_list.extend(queryFrom_youneed1())
-    # to_test_list.extend(queryFrom_youneed2())
+    to_test_list.extend(queryFrom_youneed1())
+    to_test_list.extend(queryFrom_youneed2())
 
     print('to_test_urls=', to_test_list)
 
