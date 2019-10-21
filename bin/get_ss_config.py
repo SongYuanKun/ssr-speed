@@ -16,7 +16,7 @@ def query_from_free_ss():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--proxy=https://127.0.0.1:1081')
     chrome_options.add_argument('--proxy-type=https')
-    # chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--headless')
     # chrome_options.add_argument('--disable-gpu')
     driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe',
                               options=chrome_options)

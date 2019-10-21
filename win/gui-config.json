@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "\u672a\u77e5",
-            "id": "4787FBB6F62C581F78699BEFD0B67B1B",
-            "server": "54.250.143.154",
-            "server_port": 49995,
+            "remarks": "\u7ffb\u5899\u515atg\u9891\u9053 @ssrList",
+            "id": "BA4A792F790A368509BA10B5F7AE408C",
+            "server": "139.28.235.116",
+            "server_port": 3389,
             "server_udp_port": 0,
-            "password": "O4izK4W70jlg",
-            "method": "aes-256-cfb",
+            "password": "lncn.org 8k",
+            "method": "rc4",
             "protocol": "origin",
             "protocolparam": "",
             "obfs": "plain",
             "obfsparam": "",
-            "remarks_base64": "5pyq55+l",
-            "group": "WWW.YOUNEED.WIN",
+            "remarks_base64": "57-75aKZ5YWadGfpopHpgZMgQHNzckxpc3Q",
+            "group": "FanQiangDang.com",
             "enable": true,
             "udp_over_tcp": false
         }

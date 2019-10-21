@@ -3,7 +3,7 @@ import socket
 import subprocess
 
 from bin.ParseSsr import ssr2json
-from bin.get_ssr_config import queryFrom_SSR_SHARE, queryFrom_youneed1, queryFrom_youneed2
+from bin.get_ssr_config import queryFrom_SSR_SHARE, queryFrom_youneed1, queryFrom_youneed2, queryFrom_ssrjiedian
 from bin.my_speed_test import test_ssr, table
 
 default_socket = socket.socket
@@ -32,10 +32,10 @@ if __name__ == '__main__':
     ssr_config = []
     speed_result = []
 
-    to_test_list = queryFrom_SSR_SHARE()
+    to_test_list = queryFrom_ssrjiedian()
 
-    to_test_list.extend(queryFrom_youneed1())
-    to_test_list.extend(queryFrom_youneed2())
+    # to_test_list.extend(queryFrom_youneed1())
+    # to_test_list.extend(queryFrom_youneed2())
 
     print('to_test_urls=', to_test_list)
 
