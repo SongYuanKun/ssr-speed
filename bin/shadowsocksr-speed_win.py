@@ -32,10 +32,10 @@ if __name__ == '__main__':
     ssr_config = []
     speed_result = []
 
-    to_test_list = queryFrom_ssrjiedian()
-
-    # to_test_list.extend(queryFrom_youneed1())
-    # to_test_list.extend(queryFrom_youneed2())
+    to_test_list = queryFrom_SSR_SHARE()
+    to_test_list.extend(queryFrom_ssrjiedian())
+    to_test_list.extend(queryFrom_youneed1())
+    to_test_list.extend(queryFrom_youneed2())
 
     print('to_test_urls=', to_test_list)
 
