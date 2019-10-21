@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 logging.basicConfig(level=logging.INFO)
 
 proxy_handler = {
-    'http': '127.0.0.1:1081',
-    'https': '127.0.0.1:1081'
+    'http': '127.0.0.1:1080',
+    'https': '127.0.0.1:1080'
 }
 
 
@@ -38,7 +38,7 @@ def queryFrom_SSR_SHARE():
         html = BeautifulSoup(html, 'html5lib')
         item_list = html.find_all("div", class_="tgme_widget_message_text js-message_text")
         for item in item_list:
-            ssr_html = item['href']
+            ssr_html = item.get_text().strip()
             if ssr_html.startswith("ss"):
                 to_test_urls.append(ssr_html)
     except Exception as e:
