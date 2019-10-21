@@ -68,15 +68,24 @@ def queryFrom_ssrjiedian():
             "\\/", "/").replace("/\"", "\"")
         html = BeautifulSoup(html, 'html5lib')
         item_list = html.find_all("p")
+        list1 = []
+        list2 = []
+        list3 = []
+        list4 = []
         for item in item_list:
-            ssr_html_list = item.get_text().replace("\\\"", "").replace("\\r", "").replace("\n", "").replace("\\t", "") \
-                .replace("\\/", "/").replace("/\"", "\"").split(',')
-            for item1 in ssr_html_list:
-                if item1.startswith("ss"):
-                    to_test_urls.append(item1)
+            list1.extend(item.get_text().split(','))
+        for item1 in list1:
+            list2.extend(item1.split('</br>'))
+        for item2 in list2:
+            list3.extend(item2.split('\\n'))
+        for item3 in list3:
+            list4.extend(item3.split('\n'))
+        for item4 in list4:
+            if item4.startswith("ss"):
+                to_test_urls.append(item4)
     except Exception as e:
         logging.error("ssrjiedian请求失败", e)
-
+    print(to_test_urls)
     return to_test_urls
 
 
@@ -106,7 +115,6 @@ def queryFrom_youneed1():
                 to_test_urls.append(ssr_html)
     except Exception as e:
         logging.error("youneed.win1请求失败", e)
-
     return to_test_urls
 
 
