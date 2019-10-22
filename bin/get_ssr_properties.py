@@ -1,7 +1,6 @@
 import json
 
 file_path = r"D:\SSR\gui-config.json"
-test_file_path = r"D:\SSR\gui-config.json"
 
 
 def get_properties():
