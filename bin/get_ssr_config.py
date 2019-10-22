@@ -12,7 +12,7 @@ proxy_handler = {
 }
 
 
-def queryFrom_SSR_SHARE():
+def get_from_ssr_share():
     url = 'https://t.me/s/gyjclub'
 
     headers = {
@@ -47,7 +47,7 @@ def queryFrom_SSR_SHARE():
     return to_test_urls
 
 
-def queryFrom_ssrjiedian():
+def get_from_ssrjiedian():
     url = 'https://www.ssrjiedian.com/'
 
     headers = {
@@ -89,7 +89,7 @@ def queryFrom_ssrjiedian():
     return to_test_urls
 
 
-def queryFrom_youneed1():
+def get_from_youneed1():
     url = 'https://www.youneed.win/free-ssr'
     headers = {
         'referer': 'https://www.youneed.win/free-ssr',
@@ -118,7 +118,7 @@ def queryFrom_youneed1():
     return to_test_urls
 
 
-def queryFrom_youneed2():
+def get_from_youneed2():
     url = 'https://www.youneed.win/free-ssr/2'
     headers = {
         'referer': 'https://www.youneed.win/free-ssr',
@@ -149,4 +149,4 @@ def queryFrom_youneed2():
 
 
 if __name__ == "__main__":
-    queryFrom_ssrjiedian()
+    get_from_ssrjiedian()

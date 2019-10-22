@@ -1,4 +1,3 @@
-import json
 import os
 import re
 import socket
@@ -8,6 +7,7 @@ import requests
 import socks
 from prettytable import PrettyTable
 
+from bin import get_ssr_properties
 from bin.curses_test import test_option
 
 
@@ -95,23 +95,6 @@ def connect_ssr(ssr):
         return result
 
 
-def write_json(write_config):
-    # 打开ssr config json
-    json_path = "../win/gui-config.json"
-    with open(json_path, 'r', encoding='utf-8') as f:
-        json_config = json.load(f)
-    # 清空configs列表
-    json_config['configs'] = []
-    json_config['configs'].append(write_config)
-    if 'protoparam' in json_config['configs'][0]:
-        json_config['configs'][0]['protocolparam'] = json_config['configs'][0]['protoparam']
-    if 'port' in json_config['configs'][0]:
-        json_config['configs'][0]['server_port'] = json_config['configs'][0]['port']
-    # 将订阅的数据写入的配置文件
-    with open(json_path, 'w', encoding='utf-8') as f:
-        json.dump(json_config, f, indent=4)
-
-
 # 运行 ssr
 def run_ssr():
     ssr_path = "../win/ShadowsocksR-dotnet4.0-speedtest.exe"
@@ -128,7 +111,7 @@ table = DrawTable()
 
 def test_ssr(config):
     run_ssr()
-    write_json(config)
+    get_ssr_properties.write_test_json(config)
     speed_result = connect_ssr(config)
     os.system('cls')
     table.append(
