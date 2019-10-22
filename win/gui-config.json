@@ -1,18 +1,18 @@
 {
     "configs": [
         {
-            "remarks": "#3769/AS21409: France",
-            "id": "06CD06F18314995347689E684F9D113A",
-            "server": "178.170.68.250",
-            "server_port": 10003,
+            "remarks": "#766E/AS4760: Hong Kong",
+            "id": "459318C49E5629FE3DC4CC97F28F01E4",
+            "server": "42.200.166.54",
+            "server_port": 17647,
             "server_udp_port": 0,
-            "password": "mLFBNEi0",
-            "method": "aes-128-ctr",
-            "protocol": "auth_aes128_md5",
+            "password": "003354b5",
+            "method": "none",
+            "protocol": "auth_chain_a",
             "protocolparam": "",
-            "obfs": "tls1.2_ticket_auth",
-            "obfsparam": "",
-            "remarks_base64": "IzM3NjkvQVMyMTQwOTogRnJhbmNl",
+            "obfs": "http_simple",
+            "obfsparam": "bing.com",
+            "remarks_base64": "Izc2NkUvQVM0NzYwOiBIb25nIEtvbmc",
             "group": "AutoSSR",
             "enable": true,
             "udp_over_tcp": false
