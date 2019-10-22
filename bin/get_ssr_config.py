@@ -14,7 +14,6 @@ proxy_handler = {
 
 def get_from_ssr_share():
     url = 'https://t.me/s/gyjclub'
-
     headers = {
         'Host': 't.me',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -27,15 +26,10 @@ def get_from_ssr_share():
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
-
     to_test_urls = []
     try:
         response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
-
-        html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                                  "").replace(
-            "\\/", "/").replace("/\"", "\"")
-        html = BeautifulSoup(html, 'html5lib')
+        html = format_response(response)
         item_list = html.find_all("div", class_="tgme_widget_message_text js-message_text")
         for item in item_list:
             ssr_html = item.get_text().strip()
@@ -49,7 +43,6 @@ def get_from_ssr_share():
 
 def get_from_ssrjiedian():
     url = 'https://www.ssrjiedian.com/'
-
     headers = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
         'Accept-Encoding': 'gzip, deflate, br',
@@ -58,15 +51,10 @@ def get_from_ssrjiedian():
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
-
     to_test_urls = []
     try:
         response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
-
-        html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                                  "").replace(
-            "\\/", "/").replace("/\"", "\"")
-        html = BeautifulSoup(html, 'html5lib')
+        html = format_response(response)
         item_list = html.find_all("p")
         list1 = []
         list2 = []
@@ -99,15 +87,10 @@ def get_from_youneed1():
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
-
     to_test_urls = []
     try:
         response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
-
-        html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                                  "").replace(
-            "\\/", "/").replace("/\"", "\"")
-        html = BeautifulSoup(html, 'html5lib')
+        html = format_response(response)
         item_list = html.find_all("a", string=re.compile('右键复制链接'))
         for item in item_list:
             ssr_html = item['href']
@@ -128,15 +111,10 @@ def get_from_youneed2():
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
-
     to_test_urls = []
     try:
         response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
-
-        html = response.content.decode('utf-8').replace("\\\"", "").replace("\\r", "").replace("\\n", "").replace("\\t",
-                                                                                                                  "").replace(
-            "\\/", "/").replace("/\"", "\"")
-        html = BeautifulSoup(html, 'html5lib')
+        html = format_response(response)
         item_list = html.find_all("a", string=re.compile('右键复制链接'))
         for item in item_list:
             ssr_html = item['href']
@@ -144,8 +122,15 @@ def get_from_youneed2():
                 to_test_urls.append(ssr_html)
     except Exception as e:
         logging.error("youneed.win2请求失败", e)
-
     return to_test_urls
+
+
+def format_response(response):
+    html = response.content.decode('utf-8') \
+        .replace("\\\"", "").replace("\\r", "") \
+        .replace("\\n", "").replace("\\t", "") \
+        .replace("\\/", "/").replace("/\"", "\"")
+    return BeautifulSoup(html, 'html5lib')
 
 
 if __name__ == "__main__":
