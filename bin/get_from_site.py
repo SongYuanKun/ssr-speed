@@ -3,7 +3,7 @@ import subprocess
 
 from bin.my_speed_test import test_ssr, table
 
-from bin import get_ssr_config, get_ssr_properties
+from bin import get_ssr_config, get_ssr_properties, get_from_subscribe
 from bin.ParseSsr import ssr2json
 
 default_socket = socket.socket
@@ -21,10 +21,10 @@ def close_ssr():
 
 
 def get_from_site():
-    to_test_list = get_ssr_config.get_from_ssr_share()
-    to_test_list.extend(get_ssr_config.get_from_ssrjiedian())
-    to_test_list.extend(get_ssr_config.get_from_youneed1())
-    to_test_list.extend(get_ssr_config.get_from_youneed2())
+    to_test_list = get_from_subscribe.get_from_subscribe()
+    # to_test_list.extend(get_ssr_config.get_from_ssrjiedian())
+    # to_test_list.extend(get_ssr_config.get_from_youneed1())
+    # to_test_list.extend(get_ssr_config.get_from_youneed2())
     print('to_test_urls=', to_test_list)
 
     properties = get_ssr_properties.get_properties()
