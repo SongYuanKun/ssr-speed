@@ -6,7 +6,7 @@ import urllib.request
 from colorama import init, Fore
 from prettytable import PrettyTable
 
-from bin import ParseSsr
+from bin import parse_url
 
 test_option = {'ping': True, 'network': True, 'speed': True, 'youtube': False}
 
@@ -242,14 +242,14 @@ def getss():
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'}
     f = urllib.request.Request(url, headers=headers)
     ssr_subscribe = urllib.request.urlopen(f).read().decode('utf-8')  # 获取ssr订阅链接中数据
-    ssr_subscribe_decode = ParseSsr.base64_decode(ssr_subscribe)
+    ssr_subscribe_decode = parse_url.base64_decode(ssr_subscribe)
     ssr_subscribe_decode = ssr_subscribe_decode.replace('\r', '')
     ssr_subscribe_decode = ssr_subscribe_decode.split('\n')
 
     for i in ssr_subscribe_decode:
         if (i):
             decdata = str(i[6:])  # 去掉"SSR://"
-            ssr_config.append(ParseSsr.parse(decdata))  # 解析"SSR://" 后边的base64的配置信息返回一个字典
+            ssr_config.append(parse_url.parse(decdata))  # 解析"SSR://" 后边的base64的配置信息返回一个字典
     return ssr_config
 
 

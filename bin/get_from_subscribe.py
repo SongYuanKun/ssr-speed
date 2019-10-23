@@ -2,7 +2,7 @@ import base64
 from urllib import request
 
 from bin import get_ssr_properties
-from bin.ParseSsr import cleanupBase64
+from bin.parse_url import cleanupBase64
 
 
 def get_from_subscribe():
@@ -14,6 +14,7 @@ def get_from_subscribe():
         ssr_subscribe = request.urlopen(f).read().decode('utf-8')  # 获取ssr订阅链接中数据
         ssr_subscribe_decode = base64.urlsafe_b64decode(cleanupBase64(ssr_subscribe)).decode('utf-8')
         to_test_url.extend(ssr_subscribe_decode.split('\n'))
+    return to_test_url
 
 
 if __name__ == '__main__':

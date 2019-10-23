@@ -11,7 +11,7 @@ def get_properties():
 
 def save_properties(file_config):
     with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(file_config, f, indent=2)
+        json.dump(file_config, f, indent=4)
 
 
 def write_test_json(write_config):
