@@ -1,17 +1,16 @@
 import socket
 import subprocess
 
-from bin.my_speed_test import test_ssr, table
-
-from bin import get_ssr_config, get_ssr_properties, get_from_subscribe
+from bin import get_ssr_properties, get_from_subscribe
 from bin.ParseSsr import ssr2json
+from bin.my_speed_test import test_ssr, table
 
 default_socket = socket.socket
 
 
 # 运行 ssr
 def run_ssr():
-    ssr_path = "D:\SSR\ShadowsocksR-dotnet4.0.exe"
+    ssr_path = r"D:\SSR\ShadowsocksR-dotnet4.0.exe"
     subprocess.Popen(ssr_path)
 
 

@@ -1,18 +1,18 @@
 {
     "configs": [
         {
-            "remarks": "#149E/AS58073: Netherlands",
-            "id": "AD8B6F59CF2620F6DAD54ACD27D38DEA",
-            "server": "154.84.1.6",
-            "server_port": 21554,
+            "remarks": "#6D0F/AS63949: Japan",
+            "id": "A056622C9F86A4F5326FD12986098F93",
+            "server": "172.105.197.230",
+            "server_port": 43116,
             "server_udp_port": 0,
-            "password": "4XVeP1",
+            "password": "0SLYzpjHJBr7",
             "method": "aes-256-cfb",
             "protocol": "origin",
             "protocolparam": "",
             "obfs": "plain",
             "obfsparam": "",
-            "remarks_base64": "IzE0OUUvQVM1ODA3MzogTmV0aGVybGFuZHM",
+            "remarks_base64": "IzZEMEYvQVM2Mzk0OTogSmFwYW4",
             "group": "AutoSSR",
             "enable": true,
             "udp_over_tcp": false
