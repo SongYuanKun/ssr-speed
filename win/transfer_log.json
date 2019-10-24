@@ -14,5 +14,9 @@
 	"us4.pyjiaoyi.cf" : {
 		"totalUploadBytes" : 28109119,
 		"totalDownloadBytes" : 69094318
+	},
+	"54.255.181.199" : {
+		"totalUploadBytes" : 241,
+		"totalDownloadBytes" : 0
 	}
 }
