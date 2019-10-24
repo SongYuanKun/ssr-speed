@@ -66,7 +66,7 @@ def connect_ssr(ssr):
             result['ping_pc'] = ping_pc[-1]
 
         socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 6665)
-        socket.socket = socks.socksocket
+        socket.socket = socks.socksocket(family=socket.AF_INET)
         if test_option['network']:
             ip = requests.get('https://api.ip.sb/ip', timeout=15).text.strip()
             result['ip'] = ip

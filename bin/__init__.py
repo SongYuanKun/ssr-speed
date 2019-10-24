@@ -2,9 +2,9 @@ from bin import ss_crawler, ssr_properties, my_speed_test, parse_url, ssr_crawle
 
 if __name__ == '__main__':
     to_test_list = []
-    to_test_list.extend(subscribe_crawler.get_from_subscribe())
+    # to_test_list.extend(subscribe_crawler.get_from_subscribe())
     to_test_list.extend(ssr_crawler.get_from_ssr_share())
-    to_test_list.extend(ss_crawler.query_from_free_ss())
+    # to_test_list.extend(ss_crawler.query_from_free_ss())
     to_test_list.extend(ssr_crawler.get_from_youneed1())
     to_test_list.extend(ssr_crawler.get_from_youneed2())
     print('to_test_urls=', to_test_list)
