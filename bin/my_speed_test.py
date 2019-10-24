@@ -66,9 +66,9 @@ def connect_ssr(ssr):
             result['ping_pc'] = ping_pc[-1]
 
         socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 6665)
-        socket.socket = socks.socksocket(family=socket.AF_INET)
+        socket.socket = socks.socksocket
         if test_option['network']:
-            ip = requests.get('https://api.ip.sb/ip', timeout=15).text.strip()
+            ip = requests.get('http://103.88.45.51/ip', headers={'Host': 'api.ip.sb'}, timeout=15).text.strip()
             result['ip'] = ip
             print("network_test,ip:", result['ip'])
 
@@ -130,18 +130,20 @@ def test_ssr(config):
 
 if __name__ == '__main__':
     x = {
-        "remarks": "@SSRTOOL_hkt2.puffvip.com",
-        "id": "F47BE256D1E8ED50D02E9228AEB4DF05",
-        "server": "hkt2.puffvip.com",
-        "server_port": 443,
+        "remarks": "@SSRTOOL_jp3.oyvpnserver.com",
+        "id": "09BE4744052CE7E05595AC22D9E22465",
+        "server": "jp3.oyvpnserver.com",
+        "server_port": 3572,
         "server_udp_port": 0,
-        "password": "Paofu",
-        "method": "chacha20",
-        "protocol": "auth_aes128_md5",
-        "protocolparam": "44479:nIiKIB",
-        "obfs": "http_simple",
-        "obfsparam": "3c2ad44479.microsoft.com",
-        "remarks_base64": "QFNTUlRPT0xfaGt0Mi5wdWZmdmlwLmNvbQ",
-        "group": "SSRTOOL.COM 推送"
+        "password": "cht1997...///",
+        "method": "rc4-md5",
+        "protocol": "origin",
+        "protocolparam": "",
+        "obfs": "plain",
+        "obfsparam": "",
+        "remarks_base64": "QFNTUlRPT0xfanAzLm95dnBuc2VydmVyLmNvbQ",
+        "group": "SSRTOOL.COM 推送",
+        "enable": True,
+        "udp_over_tcp": False
     }
     test_ssr(x)

@@ -1,18 +1,18 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_s206.wewall.top",
-            "id": "92353B3408F25AD3B83BE953B896C800",
-            "server": "s206.wewall.top",
-            "server_port": 80,
+            "remarks": "@SSRTOOL_jp3.oyvpnserver.com",
+            "id": "09BE4744052CE7E05595AC22D9E22465",
+            "server": "jp3.oyvpnserver.com",
+            "server_port": 3572,
             "server_udp_port": 0,
-            "password": "superssr.me",
-            "method": "none",
-            "protocol": "auth_chain_a",
-            "protocolparam": "137796:Jbpd4T",
+            "password": "cht1997...///",
+            "method": "rc4-md5",
+            "protocol": "origin",
+            "protocolparam": "",
             "obfs": "plain",
-            "obfsparam": "80a1c137796.edu.cn",
-            "remarks_base64": "QFNTUlRPT0xfczIwNi53ZXdhbGwudG9w",
+            "obfsparam": "",
+            "remarks_base64": "QFNTUlRPT0xfanAzLm95dnBuc2VydmVyLmNvbQ",
             "group": "SSRTOOL.COM \u63a8\u9001",
             "enable": true,
             "udp_over_tcp": false
