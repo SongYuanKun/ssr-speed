@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_hk3.cdn.globalnetworktraffic.com",
-            "id": "F50822885EBDE7D5429E7E14C8C239BA",
-            "server": "hk3.cdn.globalnetworktraffic.com",
-            "server_port": 1099,
+            "remarks": "\u7ffb\u5899\u515a102.34\u65e5\u672c",
+            "id": "E00B10C27A14B34983237071F5CB1FA2",
+            "server": "54.199.175.227",
+            "server_port": 29124,
             "server_udp_port": 0,
-            "password": "di15PV",
+            "password": "BRHkV7s7kodI",
             "method": "aes-256-cfb",
-            "protocol": "auth_aes128_md5",
-            "protocolparam": "73892:bLSAZV",
-            "obfs": "tls1.2_ticket_auth",
-            "obfsparam": "00e0673892.www.gov.hk",
-            "remarks_base64": "QFNTUlRPT0xfaGszLmNkbi5nbG9iYWxuZXR3b3JrdHJhZmZpYy5jb20",
-            "group": "SSRTOOL.COM \u63a8\u9001",
+            "protocol": "origin",
+            "protocolparam": "",
+            "obfs": "plain",
+            "obfsparam": "",
+            "remarks_base64": "57-75aKZ5YWaMTAyLjM05pel5pys",
+            "group": "\u65e5\u672c",
             "enable": true,
             "udp_over_tcp": false
         }

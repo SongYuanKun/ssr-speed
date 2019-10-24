@@ -1,12 +1,12 @@
 import base64
 from urllib import request
 
-from bin import get_ssr_properties
+from bin import ssr_properties
 from bin.parse_url import cleanupBase64
 
 
 def get_from_subscribe():
-    properties = get_ssr_properties.get_properties()
+    properties = ssr_properties.get_properties()
     to_test_url = []
     for serverSubscribe in properties['serverSubscribes']:
         headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'}

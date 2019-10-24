@@ -7,7 +7,7 @@ import requests
 import socks
 from prettytable import PrettyTable
 
-from bin import get_ssr_properties
+from bin import ssr_properties
 from bin.curses_test import test_option
 
 
@@ -111,7 +111,7 @@ table = DrawTable()
 
 def test_ssr(config):
     run_ssr()
-    get_ssr_properties.write_test_json(config)
+    ssr_properties.write_test_json(config)
     speed_result = connect_ssr(config)
     os.system('cls')
     table.append(
