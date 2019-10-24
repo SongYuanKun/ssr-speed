@@ -3,6 +3,10 @@ import re
 
 import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 logging.basicConfig(level=logging.INFO)
 
@@ -79,49 +83,47 @@ def get_from_ssrjiedian():
 
 def get_from_youneed1():
     url = 'https://www.youneed.win/free-ssr'
-    headers = {
-        'referer': 'https://www.youneed.win/free-ssr',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
-    }
     to_test_urls = []
-    try:
-        response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
-        html = format_response(response)
-        item_list = html.find_all("a", string=re.compile('右键复制链接'))
-        for item in item_list:
-            ssr_html = item['href']
-            if ssr_html.startswith("ss"):
-                to_test_urls.append(ssr_html)
-    except Exception as e:
-        logging.error("youneed.win1请求失败", e)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
+    chrome_options.add_argument('-no-sandbox')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe',
+                              options=chrome_options)
+    driver.get(url)
+    WebDriverWait(driver, 30, 0.5).until(
+        expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
+    html = BeautifulSoup(driver.page_source, 'html5lib')
+    driver.quit()
+    item_list = html.find_all("a", string=re.compile('右键复制链接'))
+    for item in item_list:
+        ssr_html = item['href']
+        if ssr_html.startswith("ss"):
+            to_test_urls.append(ssr_html)
     return to_test_urls
 
 
 def get_from_youneed2():
-    url = 'https://www.youneed.win/free-ssr/2'
-    headers = {
-        'referer': 'https://www.youneed.win/free-ssr',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
-    }
     to_test_urls = []
-    try:
-        response = requests.get(url, headers=headers, proxies=proxy_handler, timeout=2)
-        html = format_response(response)
-        item_list = html.find_all("a", string=re.compile('右键复制链接'))
-        for item in item_list:
-            ssr_html = item['href']
-            if ssr_html.startswith("ss"):
-                to_test_urls.append(ssr_html)
-    except Exception as e:
-        logging.error("youneed.win2请求失败", e)
+    url = 'https://www.youneed.win/free-ssr/2'
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
+    chrome_options.add_argument('-no-sandbox')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe',
+                              options=chrome_options)
+    driver.get(url)
+    WebDriverWait(driver, 30, 0.5).until(
+        expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
+    html = BeautifulSoup(driver.page_source, 'html5lib')
+    driver.quit()
+    item_list = html.find_all("a", string=re.compile('右键复制链接'))
+    for item in item_list:
+        ssr_html = item['href']
+        if ssr_html.startswith("ss"):
+            to_test_urls.append(ssr_html)
     return to_test_urls
 
 
