@@ -128,15 +128,18 @@ def get_from_youneed1():
     driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe',
                               options=chrome_options)
     driver.get(url)
-    WebDriverWait(driver, 30, 0.5).until(
-        expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
-    html = BeautifulSoup(driver.page_source, 'html5lib')
-    driver.quit()
-    item_list = html.find_all("a", string=re.compile('右键复制链接'))
-    for item in item_list:
-        ssr_html = item['href']
-        if ssr_html.startswith("ss"):
-            to_test_urls.append(ssr_html)
+    try:
+        WebDriverWait(driver, 30, 0.5).until(
+            expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
+        html = BeautifulSoup(driver.page_source, 'html5lib')
+        driver.quit()
+        item_list = html.find_all("a", string=re.compile('右键复制链接'))
+        for item in item_list:
+            ssr_html = item['href']
+            if ssr_html.startswith("ss"):
+                to_test_urls.append(ssr_html)
+    except Exception as e:
+        logging.error("youneed1请求失败", e)
     return to_test_urls
 
 
@@ -151,15 +154,18 @@ def get_from_youneed2():
     driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe',
                               options=chrome_options)
     driver.get(url)
-    WebDriverWait(driver, 30, 0.5).until(
-        expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
-    html = BeautifulSoup(driver.page_source, 'html5lib')
-    driver.quit()
-    item_list = html.find_all("a", string=re.compile('右键复制链接'))
-    for item in item_list:
-        ssr_html = item['href']
-        if ssr_html.startswith("ss"):
-            to_test_urls.append(ssr_html)
+    try:
+        WebDriverWait(driver, 30, 0.5).until(
+            expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
+        html = BeautifulSoup(driver.page_source, 'html5lib')
+        driver.quit()
+        item_list = html.find_all("a", string=re.compile('右键复制链接'))
+        for item in item_list:
+            ssr_html = item['href']
+            if ssr_html.startswith("ss"):
+                to_test_urls.append(ssr_html)
+    except Exception as e:
+        logging.error("youneed2请求失败", e)
     return to_test_urls
 
 
@@ -172,4 +178,4 @@ def format_response(response):
 
 
 if __name__ == "__main__":
-    get_from_ssrjiedian()
+    get_from_SSRSUB()

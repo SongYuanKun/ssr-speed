@@ -68,7 +68,7 @@ def connect_ssr(ssr):
         socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 6665)
         socket.socket = socks.socksocket
         if test_option['network']:
-            ip = requests.get('http://103.88.45.51/ip', header={'host': 'api.ip.sb'}, timeout=15).text.strip()
+            ip = requests.get('http://103.88.45.51/ip', headers={'host': 'api.ip.sb'}, timeout=15).text.strip()
             result['ip'] = ip
             print("network_test,ip:", result['ip'])
 
