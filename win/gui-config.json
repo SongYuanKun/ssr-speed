@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "\u672a\u77e5",
-            "id": "8250861F7242FC2A6C7776F4E8D02CC0",
-            "server": "54.238.255.78",
-            "server_port": 25173,
+            "remarks": "#3769/AS21409: France",
+            "id": "06CD06F18314995347689E684F9D113A",
+            "server": "178.170.68.250",
+            "server_port": 10003,
             "server_udp_port": 0,
-            "password": "7Uk11rlHWv4L",
-            "method": "aes-256-cfb",
-            "protocol": "origin",
+            "password": "mLFBNEi0",
+            "method": "aes-128-ctr",
+            "protocol": "auth_aes128_md5",
             "protocolparam": "",
-            "obfs": "plain",
+            "obfs": "tls1.2_ticket_auth",
             "obfsparam": "",
-            "remarks_base64": "5pyq55+l",
-            "group": "WWW.YOUNEED.WIN",
+            "remarks_base64": "IzM3NjkvQVMyMTQwOTogRnJhbmNl",
+            "group": "AutoSSR",
             "enable": true,
             "udp_over_tcp": false
         }

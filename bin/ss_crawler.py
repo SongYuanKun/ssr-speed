@@ -1,5 +1,6 @@
 import logging
 
+from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.common.by import By
@@ -33,5 +34,28 @@ def query_from_free_ss():
     return to_test_urls
 
 
+def get_from_youneed():
+    url = 'https://www.youneed.win/free-ss'
+    to_test_urls = []
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
+    chrome_options.add_argument('-no-sandbox')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe',
+                              options=chrome_options)
+    driver.get(url)
+    WebDriverWait(driver, 30, 0.5).until(
+        expected_conditions.visibility_of_element_located((By.CLASS_NAME, 'v2ray')))
+    html = BeautifulSoup(driver.page_source, 'html5lib')
+    driver.quit()
+    item_list = html.find_all("table tbody tr")
+    for item in item_list:
+        ssr_html = item['href']
+        if ssr_html.startswith("ss"):
+            to_test_urls.append(ssr_html)
+    return to_test_urls
+
+
 if __name__ == '__main__':
-    query_from_free_ss()
+    get_from_youneed()
