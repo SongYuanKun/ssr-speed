@@ -7,6 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from bin import my_chrome_driver
+
 logging.basicConfig(level=logging.INFO)
 
 
@@ -22,7 +24,7 @@ def query_from_free_ss():
     capabilities['acceptSslCerts'] = True
     capabilities['acceptInsecureCerts'] = True
 
-    driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe',
+    driver = webdriver.Chrome(executable_path=my_chrome_driver.chrome_driver_path,
                               options=chrome_options, desired_capabilities=capabilities)
     driver.maximize_window()
     driver.get(url)
@@ -42,7 +44,7 @@ def get_from_youneed():
     chrome_options.add_argument('-no-sandbox')
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe',
+    driver = webdriver.Chrome(executable_path=my_chrome_driver.chrome_driver_path,
                               options=chrome_options)
     driver.get(url)
     WebDriverWait(driver, 30, 0.5).until(

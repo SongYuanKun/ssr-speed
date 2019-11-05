@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "\u8377\u5170-North Holland",
-            "id": "51F1968D5A6C6ADB9DE9A95272864214",
-            "server": "154.84.1.144",
-            "server_port": 27981,
+            "remarks": "@SSRTOOL_us03.fengyecloud.me",
+            "id": "A6D57C2F570102F3D638F5EF4C74592D",
+            "server": "us03.fengyecloud.me",
+            "server_port": 543,
             "server_udp_port": 0,
-            "password": "4XVeP1",
-            "method": "aes-256-cfb",
-            "protocol": "origin",
-            "protocolparam": "",
-            "obfs": "plain",
-            "obfsparam": "",
-            "remarks_base64": "6I235YWwLU5vcnRoIEhvbGxhbmQ",
-            "group": "WWW.YOUNEED.WIN",
+            "password": "jFa4F1",
+            "method": "aes-256-ctr",
+            "protocol": "auth_aes128_md5",
+            "protocolparam": "1244:I9vyxC",
+            "obfs": "tls1.2_ticket_auth",
+            "obfsparam": "ddd241244.microsoft.com",
+            "remarks_base64": "QFNTUlRPT0xfdXMwMy5mZW5neWVjbG91ZC5tZQ",
+            "group": "SSRTOOL.COM \u63a8\u9001",
             "enable": true,
             "udp_over_tcp": false
         }
