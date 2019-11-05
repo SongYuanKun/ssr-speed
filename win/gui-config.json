@@ -1,10 +1,10 @@
 {
     "configs": [
         {
-            "remarks": "#A5BF/AS58073: Netherlands",
-            "id": "D46B493CCA84FCAA1EFE40994080ED24",
-            "server": "154.84.1.142",
-            "server_port": 39081,
+            "remarks": "\u8377\u5170-North Holland",
+            "id": "51F1968D5A6C6ADB9DE9A95272864214",
+            "server": "154.84.1.144",
+            "server_port": 27981,
             "server_udp_port": 0,
             "password": "4XVeP1",
             "method": "aes-256-cfb",
@@ -12,8 +12,8 @@
             "protocolparam": "",
             "obfs": "plain",
             "obfsparam": "",
-            "remarks_base64": "I0E1QkYvQVM1ODA3MzogTmV0aGVybGFuZHM",
-            "group": "AutoSSR",
+            "remarks_base64": "6I235YWwLU5vcnRoIEhvbGxhbmQ",
+            "group": "WWW.YOUNEED.WIN",
             "enable": true,
             "udp_over_tcp": false
         }
