@@ -125,6 +125,7 @@ def test_ssr(config):
         network=speed_result['state']
     )
     close_ssr()
+    print(table.str())
     return speed_result['state'] == 'Success'
 
 
