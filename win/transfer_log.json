@@ -22,5 +22,9 @@
 	"92.38.128.137" : {
 		"totalUploadBytes" : 4909485,
 		"totalDownloadBytes" : 690237
+	},
+	"50.7.12.147" : {
+		"totalUploadBytes" : 275,
+		"totalDownloadBytes" : 3589
 	}
 }

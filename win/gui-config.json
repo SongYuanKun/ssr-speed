@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "\u7f8e\u56fd-\u52a0\u5229\u798f\u5c3c\u4e9a\u5dde",
-            "id": "81B64E1F78451FF65034AC3939F2CD88",
-            "server": "us3.ssrsub.xyz",
-            "server_port": 9500,
+            "remarks": "@SSRSUB-\u7f8e\u56fdD10-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
+            "id": "07C676733818CFD97E217F72670EB016",
+            "server": "50.116.2.131",
+            "server_port": 443,
             "server_udp_port": 0,
-            "password": "http://t.cn/EGJIyrl",
-            "method": "aes-256-ctr",
-            "protocol": "auth_aes128_md5",
-            "protocolparam": "",
-            "obfs": "tls1.2_ticket_auth",
-            "obfsparam": "",
-            "remarks_base64": "576O5Zu9LeWKoOWIqeemj+WwvOS6muW3ng",
-            "group": "WWW.YOUNEED.WIN",
+            "password": "9d6cceaa373bf2c8acb22e60b6a58be6",
+            "method": "aes-256-cfb",
+            "protocol": "origin",
+            "protocolparam": "t.me/SSRSUB",
+            "obfs": "plain",
+            "obfsparam": "\u4ed8\u8d39SSR\u6ce8\u518c:http://t.cn/EGJIyrl",
+            "remarks_base64": "QFNTUlNVQi3nvo7lm71EMTAt5LuY6LS5U1NS5o6o6I2QOnQuY24vRUdKSXlybA",
+            "group": "t.me/SSRSUB",
             "enable": true,
             "udp_over_tcp": false
         }

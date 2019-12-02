@@ -16,7 +16,7 @@ def save_properties(file_config):
 
 def write_test_json(write_config):
     # 打开ssr config json
-    json_path = "../win/gui-config.json"
+    json_path = "D:\PycharmProjects\ssr-speed\win\gui-config.json"
     with open(json_path, 'r', encoding='utf-8') as f:
         json_config = json.load(f)
     # 清空configs列表

@@ -97,7 +97,7 @@ def connect_ssr(ssr):
 
 # 运行 ssr
 def run_ssr():
-    ssr_path = "../win/ShadowsocksR-dotnet4.0-speedtest.exe"
+    ssr_path = "D:\PycharmProjects\ssr-speed\win\ShadowsocksR-dotnet4.0-speedtest.exe"
     subprocess.Popen(ssr_path)
 
 
