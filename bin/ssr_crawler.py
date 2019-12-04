@@ -20,7 +20,7 @@ proxy_handler = {
 
 
 def get_from_ssr_share():
-    url = 'https://t.me/s/gyjclub'
+    url = 'https://t.me/s/ssrshares'
     headers = {
         'Host': 't.me',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -169,6 +169,32 @@ def get_from_youneed2():
                 to_test_urls.append(ssr_html)
     except Exception as e:
         logging.error("youneed2请求失败", e)
+    return to_test_urls
+
+
+def get_from_youneed3():
+    to_test_urls = []
+    url = 'https://www.youneed.win/free-ssr/3'
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
+    chrome_options.add_argument('-no-sandbox')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(executable_path=my_chrome_driver.chrome_driver_path,
+                              options=chrome_options)
+    driver.get(url)
+    try:
+        WebDriverWait(driver, 30, 0.5).until(
+            expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
+        html = BeautifulSoup(driver.page_source, 'html5lib')
+        driver.quit()
+        item_list = html.find_all("a", string=re.compile('右键复制链接'))
+        for item in item_list:
+            ssr_html = item['href']
+            if ssr_html.startswith("ss"):
+                to_test_urls.append(ssr_html)
+    except Exception as e:
+        logging.error("youneed3请求失败", e)
     return to_test_urls
 
 

@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "@SSRSUB-\u7f8e\u56fdD10-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
-            "id": "07C676733818CFD97E217F72670EB016",
-            "server": "50.116.2.131",
-            "server_port": 443,
+            "remarks": "@SSRTOOL_167.179.106.136",
+            "id": "A7AE32C54B83CC5307C640C956B9B123",
+            "server": "167.179.106.136",
+            "server_port": 2333,
             "server_udp_port": 0,
-            "password": "9d6cceaa373bf2c8acb22e60b6a58be6",
-            "method": "aes-256-cfb",
+            "password": "viencoding.com",
+            "method": "aes-128-ctr",
             "protocol": "origin",
-            "protocolparam": "t.me/SSRSUB",
+            "protocolparam": "",
             "obfs": "plain",
-            "obfsparam": "\u4ed8\u8d39SSR\u6ce8\u518c:http://t.cn/EGJIyrl",
-            "remarks_base64": "QFNTUlNVQi3nvo7lm71EMTAt5LuY6LS5U1NS5o6o6I2QOnQuY24vRUdKSXlybA",
-            "group": "t.me/SSRSUB",
+            "obfsparam": "",
+            "remarks_base64": "QFNTUlRPT0xfMTY3LjE3OS4xMDYuMTM2",
+            "group": "SSRTOOL.COM \u63a8\u9001",
             "enable": true,
             "udp_over_tcp": false
         }
