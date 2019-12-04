@@ -1,18 +1,18 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_45.32.101.175",
-            "id": "D1DE1F2D9AF28A4517FD6863446ECE22",
-            "server": "45.32.101.175",
+            "remarks": "@SSRTOOL_13.94.45.174",
+            "id": "92F840C8482E40169399A83268BF246E",
+            "server": "13.94.45.174",
             "server_port": 2333,
             "server_udp_port": 0,
-            "password": "viencoding.com",
+            "password": "doub.io",
             "method": "aes-128-ctr",
-            "protocol": "origin",
+            "protocol": "auth_sha1_v4",
             "protocolparam": "",
-            "obfs": "plain",
-            "obfsparam": "",
-            "remarks_base64": "QFNTUlRPT0xfNDUuMzIuMTAxLjE3NQ",
+            "obfs": "http_simple",
+            "obfsparam": "f-vali.cp31.ott.cibntv.net\nReferer:f-vali.cp31.ott.cibntv.net",
+            "remarks_base64": "QFNTUlRPT0xfMTMuOTQuNDUuMTc0",
             "group": "SSRTOOL.COM \u63a8\u9001",
             "enable": true,
             "udp_over_tcp": false

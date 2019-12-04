@@ -26,5 +26,9 @@
 	"50.7.12.147" : {
 		"totalUploadBytes" : 275,
 		"totalDownloadBytes" : 3589
+	},
+	"13.94.45.174" : {
+		"totalUploadBytes" : 5366731,
+		"totalDownloadBytes" : 13560632
 	}
 }
