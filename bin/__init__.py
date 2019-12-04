@@ -20,17 +20,17 @@ if __name__ == '__main__':
             config = parse_url.ssr2json(ssr_url)
             have_this = 0
             result = my_speed_test.test_ssr(config)
-            for x in configs:
-                if x['server'] == config['server']:
-                    have_this = 1
-            if have_this == 0 and result:
-                configs.append(config)
+            if result:
+                for x in configs:
+                    if x['server'] == config['server']:
+                        have_this = 1
+                if have_this == 0:
+                    configs.append(config)
         except Exception as e:
             print(e)
             continue
 
     properties['configs'] = configs
-    print(my_speed_test.table.str())
     ssr_properties.save_properties(properties)
 
     retest_configs()

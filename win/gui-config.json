@@ -1,9 +1,9 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_167.179.106.136",
-            "id": "A7AE32C54B83CC5307C640C956B9B123",
-            "server": "167.179.106.136",
+            "remarks": "@SSRTOOL_45.32.101.175",
+            "id": "D1DE1F2D9AF28A4517FD6863446ECE22",
+            "server": "45.32.101.175",
             "server_port": 2333,
             "server_udp_port": 0,
             "password": "viencoding.com",
@@ -12,7 +12,7 @@
             "protocolparam": "",
             "obfs": "plain",
             "obfsparam": "",
-            "remarks_base64": "QFNTUlRPT0xfMTY3LjE3OS4xMDYuMTM2",
+            "remarks_base64": "QFNTUlRPT0xfNDUuMzIuMTAxLjE3NQ",
             "group": "SSRTOOL.COM \u63a8\u9001",
             "enable": true,
             "udp_over_tcp": false

@@ -80,7 +80,6 @@ def get_from_ssrjiedian():
                 to_test_urls.append(item4)
     except Exception as e:
         logging.error("ssrjiedian请求失败", e)
-    print(to_test_urls)
     return to_test_urls
 
 
@@ -116,7 +115,6 @@ def get_from_SSRSUB():
                 to_test_urls.append(item4)
     except Exception as e:
         logging.error("SSRSUB请求失败", e)
-    print(to_test_urls)
     return to_test_urls
 
 
