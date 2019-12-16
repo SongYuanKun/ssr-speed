@@ -1,5 +1,26 @@
+from concurrent.futures.thread import ThreadPoolExecutor
+
 from bin import ssr_properties, my_speed_test, parse_url, ssr_crawler, my_chrome_driver, subscribe_crawler
 from bin.retest_configs import retest_configs
+
+
+def fun1(a):
+    for ssr_url in a:
+        try:
+            config = parse_url.ssr2json(ssr_url)
+            have_this = 0
+            result = my_speed_test.test_ssr(config, 1)
+            if result:
+                for x in configs:
+                    if x['server'] == config['server']:
+                        have_this = 1
+                if have_this == 0:
+                    configs.append(config)
+        except Exception as e:
+            print(e)
+            print(ssr_url)
+            continue
+
 
 if __name__ == '__main__':
     my_chrome_driver.run_chrome()
@@ -15,21 +36,8 @@ if __name__ == '__main__':
 
     properties = ssr_properties.get_properties()
     configs = properties['configs']
-    for ssr_url in to_test_list:
-        try:
-            config = parse_url.ssr2json(ssr_url)
-            have_this = 0
-            result = my_speed_test.test_ssr(config, 1)
-            if result:
-                for x in configs:
-                    if x['server'] == config['server']:
-                        have_this = 1
-                if have_this == 0:
-                    configs.append(config)
-        except Exception as e:
-            print(e)
-            print(ssr_url)
-            continue
+    with ThreadPoolExecutor(4) as executor1:
+        executor1.map(fun1, to_test_list)
 
     properties['configs'] = configs
     print(configs)
