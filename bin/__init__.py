@@ -59,12 +59,8 @@ class ThreadCrawl(threading.Thread):
 
 if __name__ == '__main__':
     my_chrome_driver.run_chrome()
-    to_test_list = [
-        'ssr://MTkyLjI0MC45OS4xODI6ODA5NzpvcmlnaW46YWVzLTI1Ni1jZmI6cGxhaW46WlVsWE1FUnVhelk1TkRVMFpUWnVVM2QxYzNCMk9VUnRVekl3TVhSUk1FUS8_b2Jmc3BhcmFtPSZwcm90b3BhcmFtPSZyZW1hcmtzPUkwUXdPVUl2UVZNeE56UTZJRlZ1YVhSbFpDQlRkR0YwWlhNJmdyb3VwPVFYVjBiMU5UVWc',
-        'ssr://MTcyLjEwNS4xOTIuMTM1OjgwOTk6b3JpZ2luOmFlcy0yNTYtY2ZiOnBsYWluOlpVbFhNRVJ1YXpZNU5EVTBaVFp1VTNkMWMzQjJPVVJ0VXpJd01YUlJNRVEvP29iZnNwYXJhbT0mcHJvdG9wYXJhbT0mcmVtYXJrcz1JekpCTnprdlFWTTJNemswT1RvZ1NtRndZVzQmZ3JvdXA9UVhWMGIxTlRVZw',
-        'ssr://MTM5LjE2Mi4xNS40NTo4MDk5Om9yaWdpbjphZXMtMjU2LWNmYjpwbGFpbjpaVWxYTUVSdWF6WTVORFUwWlRadVUzZDFjM0IyT1VSdFV6SXdNWFJSTUVRLz9vYmZzcGFyYW09JnByb3RvcGFyYW09JnJlbWFya3M9SXpkR01VUXZRVk0yTXprME9Ub2dVMmx1WjJGd2IzSmwmZ3JvdXA9UVhWMGIxTlRVZw',
-        'ssr://MTM5LjE2Mi42Ny40MDo4MDk3Om9yaWdpbjphZXMtMjU2LWNmYjpwbGFpbjpaVWxYTUVSdWF6WTVORFUwWlRadVUzZDFjM0IyT1VSdFV6SXdNWFJSTUVRLz9vYmZzcGFyYW09JnByb3RvcGFyYW09JnJlbWFya3M9SXpReVFUQXZRVk0yTXprME9Ub2dTbUZ3WVc0Jmdyb3VwPVFYVjBiMU5UVWc']
-    # to_test_list.extend(subscribe_crawler.get_from_subscribe())
+    to_test_list = []
+    to_test_list.extend(subscribe_crawler.get_from_subscribe())
     # to_test_list.extend(ssr_crawler.get_from_ssr_share())
     # to_test_list.extend(ssr_crawler.get_from_lncn())
     # to_test_list.extend(ssr_crawler.get_from_SSRSUB())
