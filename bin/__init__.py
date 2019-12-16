@@ -20,7 +20,7 @@ if __name__ == '__main__':
             config = parse_url.ssr2json(ssr_url)
             have_this = 0
             result = my_speed_test.test_ssr(config, 1)
-            if result == 'Success':
+            if result:
                 for x in configs:
                     if x['server'] == config['server']:
                         have_this = 1
