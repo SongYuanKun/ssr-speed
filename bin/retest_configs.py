@@ -7,5 +7,4 @@ def retest_configs():
     for config in configs:
         if my_speed_test.test_ssr(config) != 'Success':
             configs.remove(config)
-    print(my_speed_test.table)
     ssr_properties.save_properties(properties)

@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_13.94.45.174",
-            "id": "92F840C8482E40169399A83268BF246E",
-            "server": "13.94.45.174",
-            "server_port": 2333,
+            "remarks": "@SSRSUB-\u52a0\u62ff\u5927A7-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
+            "id": "E3BFCE274D69E520C07561F453D702A0",
+            "server": "ssr7.ssrsub.xyz",
+            "server_port": 9000,
             "server_udp_port": 0,
-            "password": "doub.io",
-            "method": "aes-128-ctr",
-            "protocol": "auth_sha1_v4",
-            "protocolparam": "",
-            "obfs": "http_simple",
-            "obfsparam": "f-vali.cp31.ott.cibntv.net\nReferer:f-vali.cp31.ott.cibntv.net",
-            "remarks_base64": "QFNTUlRPT0xfMTMuOTQuNDUuMTc0",
-            "group": "SSRTOOL.COM \u63a8\u9001",
+            "password": "t.me/SSRSUB",
+            "method": "aes-256-ctr",
+            "protocol": "auth_aes128_md5",
+            "protocolparam": "t.me/SSRSUB",
+            "obfs": "tls1.2_ticket_auth",
+            "obfsparam": "\u4ed8\u8d39SSR\u6ce8\u518c:http://t.cn/EGJIyrl",
+            "remarks_base64": "QFNTUlNVQi3liqDmi7_lpKdBNy3ku5jotLlTU1LmjqjojZA6dC5jbi9FR0pJeXJs",
+            "group": "t.me/SSRSUB",
             "enable": true,
             "udp_over_tcp": false
         }

@@ -55,16 +55,20 @@ def ssrDecode(text):
 
     for f in arr2:  # 第二个实例
         kv = f.split('=')
-        v = base64.urlsafe_b64decode(cleanupBase64(kv[1])).decode('utf-8')
-        if kv[0] == 'obfsparam':
-            obfsparam = v
-        elif kv[0] == 'protoparam':
-            protoparam = v
-        elif kv[0] == 'remarks':
-            remarks = v
-            remarks_base64 = kv[1]
-        elif kv[0] == 'group':
-            group = v
+        try:
+            v = base64.urlsafe_b64decode(cleanupBase64(kv[1])).decode('utf-8')
+            if kv[0] == 'obfsparam':
+                obfsparam = v
+            elif kv[0] == 'protoparam':
+                protoparam = v
+            elif kv[0] == 'remarks':
+                remarks = v
+                remarks_base64 = kv[1]
+            elif kv[0] == 'group':
+                group = v
+        except Exception as e:
+            print(e)
+            continue
     res = {
         "remarks": remarks,
         "id": md5,

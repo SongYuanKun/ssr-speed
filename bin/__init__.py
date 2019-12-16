@@ -4,11 +4,11 @@ from bin.retest_configs import retest_configs
 if __name__ == '__main__':
     my_chrome_driver.run_chrome()
     to_test_list = []
-    # to_test_list.extend(subscribe_crawler.get_from_subscribe())
-    to_test_list.extend(ssr_crawler.get_from_ssr_share())
+    to_test_list.extend(subscribe_crawler.get_from_subscribe())
+    # to_test_list.extend(ssr_crawler.get_from_ssr_share())
     # to_test_list.extend(ssr_crawler.get_from_lncn())
-    to_test_list.extend(ssr_crawler.get_from_SSRSUB())
-    to_test_list.extend(ssr_crawler.get_from_youneed1())
+    # to_test_list.extend(ssr_crawler.get_from_SSRSUB())
+    # to_test_list.extend(ssr_crawler.get_from_youneed1())
     # to_test_list.extend(ssr_crawler.get_from_youneed2())
     print('to_test_urls=', to_test_list)
     my_chrome_driver.close_chrome()
@@ -31,6 +31,7 @@ if __name__ == '__main__':
             continue
 
     properties['configs'] = configs
+    print(configs)
     ssr_properties.save_properties(properties)
 
     retest_configs()
