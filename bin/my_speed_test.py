@@ -73,7 +73,7 @@ def close_ssr():
 
 
 def run_ssr2():
-    ssr_path = r"D:\PycharmProjects\ssr-speed\win\ShadowsocksR-dotnet4.0-speedtest2.exe"
+    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp2\ShadowsocksR-dotnet4.0-speedtest2.exe"
     subprocess.Popen(ssr_path)
 
 
@@ -82,7 +82,7 @@ def close_ssr2():
 
 
 def run_ssr3():
-    ssr_path = r"D:\PycharmProjects\ssr-speed\win\ShadowsocksR-dotnet4.0-speedtest3.exe"
+    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp3\ShadowsocksR-dotnet4.0-speedtest3.exe"
     subprocess.Popen(ssr_path)
 
 
@@ -92,13 +92,13 @@ def close_ssr3():
 
 
 def run_ssr4():
-    ssr_path = r"D:\PycharmProjects\ssr-speed\win\ShadowsocksR-dotnet4.0-speedtest4.exe"
+    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp4\ShadowsocksR-dotnet4.0-speedtest4.exe"
     subprocess.Popen(ssr_path)
 
 
 # 关闭ssr
 def close_ssr4():
-    subprocess.call('taskkill /f /im ShadowsocksR-dotnet4.0-speedtest.exe4', stdout=subprocess.PIPE)
+    subprocess.call('taskkill /f /im ShadowsocksR-dotnet4.0-speedtest4.exe', stdout=subprocess.PIPE)
 
 
 def test_ssr(config, num):

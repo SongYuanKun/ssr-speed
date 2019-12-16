@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "@SSRSUB-\u53f0\u6e7eD5-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
-            "id": "47CB8E5FC12B624B4425413EA5B27C0A",
-            "server": "210.203.20.91",
-            "server_port": 8080,
+            "remarks": "#D09B/AS174: United States",
+            "id": "3B501860AC85175F8C6F812F973C87AB",
+            "server": "192.240.99.182",
+            "server_port": 8097,
             "server_udp_port": 0,
-            "password": "l9GnDewIE",
+            "password": "eIW0Dnk69454e6nSwuspv9DmS201tQ0D",
             "method": "aes-256-cfb",
             "protocol": "origin",
             "protocolparam": "",
-            "obfs": "tls1.2_ticket_auth",
-            "obfsparam": "releases.ubuntu.com",
-            "remarks_base64": "QFNTUlNVQi3lj7Dmub5ENS3ku5jotLlTU1LmjqjojZA6dC5jbi9FR0pJeXJs",
-            "group": "t.me/SSRSUB",
+            "obfs": "plain",
+            "obfsparam": "",
+            "remarks_base64": "I0QwOUIvQVMxNzQ6IFVuaXRlZCBTdGF0ZXM",
+            "group": "AutoSSR",
             "enable": true,
             "udp_over_tcp": false
         }
