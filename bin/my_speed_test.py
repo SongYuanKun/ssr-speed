@@ -30,9 +30,9 @@ def connect_ssr(ssr, port):
             ping_pc = pattern.findall(out[-1].decode('gbk'))
             print("ping_test,localPing:", ping_pc[-1])
             result['ping_pc'] = ping_pc[-1]
+        my_socket = socks.socksocket()
+        my_socket.setproxy(socks.SOCKS5, "127.0.0.1", port)
 
-        socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", port)
-        socket.socket = socks.socksocket
         if test_option['network']:
             ip = requests.get('http://103.88.45.51/ip', headers={'host': 'api.ip.sb'}, timeout=15).text.strip()
             result['ip'] = ip
@@ -63,7 +63,7 @@ def connect_ssr(ssr, port):
 
 # 运行 ssr
 def run_ssr():
-    ssr_path = r"D:\PycharmProjects\ssr-speed\win\ShadowsocksR-dotnet4.0-speedtest.exe"
+    ssr_path = r"H:\PyCharmWorkSpeace\ssr-speed\win\ShadowsocksR-dotnet4.0-speedtest.exe"
     subprocess.Popen(ssr_path)
 
 
@@ -73,7 +73,7 @@ def close_ssr():
 
 
 def run_ssr2():
-    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp2\ShadowsocksR-dotnet4.0-speedtest2.exe"
+    ssr_path = r"H:\PyCharmWorkSpeace\ssr-speed\win\temp2\ShadowsocksR-dotnet4.0-speedtest2.exe"
     subprocess.Popen(ssr_path)
 
 
@@ -82,7 +82,7 @@ def close_ssr2():
 
 
 def run_ssr3():
-    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp3\ShadowsocksR-dotnet4.0-speedtest3.exe"
+    ssr_path = r"H:\PyCharmWorkSpeace\ssr-speed\win\temp3\ShadowsocksR-dotnet4.0-speedtest3.exe"
     subprocess.Popen(ssr_path)
 
 
@@ -92,7 +92,7 @@ def close_ssr3():
 
 
 def run_ssr4():
-    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp4\ShadowsocksR-dotnet4.0-speedtest4.exe"
+    ssr_path = r"H:\PyCharmWorkSpeace\ssr-speed\win\temp4\ShadowsocksR-dotnet4.0-speedtest4.exe"
     subprocess.Popen(ssr_path)
 
 

@@ -1,6 +1,6 @@
 import subprocess
 
-chrome_driver_path = "D:\PycharmProjects\ssr-speed\win\chromedriver.exe"
+chrome_driver_path = "H:\PyCharmWorkSpeace\ssr-speed\win\chromedriver.exe"
 
 
 # 运行 chrome

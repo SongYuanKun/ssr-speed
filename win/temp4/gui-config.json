@@ -1,8 +1,8 @@
 {
     "configs": [
         {
-            "remarks": "#6EF8/AS63949: Japan",
-            "id": "EE98F530FD5C612AF3B363DA54F848E3",
+            "remarks": "\u7f8a\u738b\u7535\u62a5SSR20",
+            "id": "438ADEF5EAECCE19853118C1D8E97DEC",
             "server": "172.105.218.172",
             "server_port": 25034,
             "server_udp_port": 0,
@@ -12,8 +12,8 @@
             "protocolparam": "",
             "obfs": "plain",
             "obfsparam": "",
-            "remarks_base64": "IzZFRjgvQVM2Mzk0OTogSmFwYW4",
-            "group": "AutoSSR",
+            "remarks_base64": "576K546L55S15oqlU1NSMjA",
+            "group": "haobang.me",
             "enable": true,
             "udp_over_tcp": false
         }
