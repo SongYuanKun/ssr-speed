@@ -46,7 +46,7 @@ class ThreadCrawl(threading.Thread):
             config = parse_url.ssr2json(ssr_url)
             have_this = 0
             result = my_speed_test.test_ssr(config, self.threadName)
-            print(ssr_url + "的结果" + result)
+            print(ssr_url + "的结果" + str(result))
             if result:
                 for x in configs:
                     if x['server'] == config['server']:
