@@ -39,13 +39,14 @@ class ThreadCrawl(threading.Thread):
             except Exception as e:
                 print('队列为空。。。。。', e)
                 pass
-            print('#' * 300)
+            print('#' * 200)
 
     def get_con(self, ssr_url):  # 自己封装的请求自定义
         try:
             config = parse_url.ssr2json(ssr_url)
             have_this = 0
             result = my_speed_test.test_ssr(config, self.threadName)
+            print(ssr_url + "的结果" + result)
             if result:
                 for x in configs:
                     if x['server'] == config['server']:
