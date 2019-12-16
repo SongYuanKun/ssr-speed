@@ -28,6 +28,7 @@ if __name__ == '__main__':
                     configs.append(config)
         except Exception as e:
             print(e)
+            print(ssr_url)
             continue
 
     properties['configs'] = configs
