@@ -76,10 +76,11 @@ if __name__ == '__main__':
         crawlList = [1, 2, 3, 4]
         # id的队列
         idQueue = Queue(20)
-        if idQueue.empty() and to_test_list.__len__() > 0:
+        if idQueue.empty():
             for i in crawlList:
-                idQueue.put(to_test_list[-1])
-                to_test_list.pop()
+                if to_test_list.__len__() > 0:
+                    idQueue.put(to_test_list[-1])
+                    to_test_list.pop()
 
         # 　采集线程的数量
 
