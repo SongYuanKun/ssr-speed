@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "#7F1D/AS63949: Singapore",
-            "id": "9509C1CB409CB9CFB4E8582E03C98FE4",
+            "remarks": "@SSRSUB-\u65b0\u52a0\u5761C7-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
+            "id": "0851D75B565FF7C4E432CE61AC693D0C",
             "server": "139.162.15.45",
             "server_port": 8099,
             "server_udp_port": 0,
             "password": "eIW0Dnk69454e6nSwuspv9DmS201tQ0D",
             "method": "aes-256-cfb",
             "protocol": "origin",
-            "protocolparam": "",
+            "protocolparam": "t.me/SSRSUB",
             "obfs": "plain",
-            "obfsparam": "",
-            "remarks_base64": "IzdGMUQvQVM2Mzk0OTogU2luZ2Fwb3Jl",
-            "group": "AutoSSR",
+            "obfsparam": "\u4ed8\u8d39SSR\u6ce8\u518c:http://t.cn/EGJIyrl",
+            "remarks_base64": "QFNTUlNVQi3mlrDliqDlnaFDNy3ku5jotLlTU1LmjqjojZA6dC5jbi9FR0pJeXJs",
+            "group": "t.me/SSRSUB",
             "enable": true,
             "udp_over_tcp": false
         }

@@ -99,4 +99,4 @@ if __name__ == '__main__':
     print(configs)
     ssr_properties.save_properties(properties)
 
-    # retest_configs()
+    retest_configs()
