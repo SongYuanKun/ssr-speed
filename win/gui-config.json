@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "\u7f8a\u738b\u7535\u62a5SSR23",
-            "id": "3CAE345C37EA060F97005AAB9CEBB324",
-            "server": "103.29.68.85",
-            "server_port": 49997,
+            "remarks": "#84B2/AS63949: Japan",
+            "id": "DA6FFE0236803BE29F6DD9093EB74C98",
+            "server": "172.104.105.168",
+            "server_port": 54405,
             "server_udp_port": 0,
-            "password": "Xvo616i8Qimp",
+            "password": "Ydz3e5X0UdWx",
             "method": "aes-256-cfb",
             "protocol": "origin",
             "protocolparam": "",
             "obfs": "plain",
             "obfsparam": "",
-            "remarks_base64": "576K546L55S15oqlU1NSMjM",
-            "group": "haobang.me",
+            "remarks_base64": "Izg0QjIvQVM2Mzk0OTogSmFwYW4",
+            "group": "AutoSSR",
             "enable": true,
             "udp_over_tcp": false
         }

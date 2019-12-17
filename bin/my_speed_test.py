@@ -63,7 +63,7 @@ def connect_ssr(ssr, port):
 
 # 运行 ssr
 def run_ssr():
-    ssr_path = r"H:\PyCharmWorkSpeace\ssr-speed\win\ShadowsocksR-dotnet4.0-speedtest.exe"
+    ssr_path = r"D:\PycharmProjects\ssr-speed\win\ShadowsocksR-dotnet4.0-speedtest.exe"
     subprocess.Popen(ssr_path)
 
 
@@ -73,7 +73,7 @@ def close_ssr():
 
 
 def run_ssr2():
-    ssr_path = r"H:\PyCharmWorkSpeace\ssr-speed\win\temp2\ShadowsocksR-dotnet4.0-speedtest2.exe"
+    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp2\ShadowsocksR-dotnet4.0-speedtest2.exe"
     subprocess.Popen(ssr_path)
 
 
@@ -82,7 +82,7 @@ def close_ssr2():
 
 
 def run_ssr3():
-    ssr_path = r"H:\PyCharmWorkSpeace\ssr-speed\win\temp3\ShadowsocksR-dotnet4.0-speedtest3.exe"
+    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp3\ShadowsocksR-dotnet4.0-speedtest3.exe"
     subprocess.Popen(ssr_path)
 
 
@@ -92,7 +92,7 @@ def close_ssr3():
 
 
 def run_ssr4():
-    ssr_path = r"H:\PyCharmWorkSpeace\ssr-speed\win\temp4\ShadowsocksR-dotnet4.0-speedtest4.exe"
+    ssr_path = r"D:\PycharmProjects\ssr-speed\win\temp4\ShadowsocksR-dotnet4.0-speedtest4.exe"
     subprocess.Popen(ssr_path)
 
 

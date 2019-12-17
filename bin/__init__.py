@@ -5,24 +5,6 @@ from bin import ssr_properties, my_speed_test, parse_url, ssr_crawler, my_chrome
 from bin.retest_configs import retest_configs
 
 
-def fun1(num):
-    for ssr_url in to_test_list:
-        try:
-            config = parse_url.ssr2json(ssr_url)
-            have_this = 0
-            result = my_speed_test.test_ssr(config, num)
-            if result:
-                for x in configs:
-                    if x['server'] == config['server']:
-                        have_this = 1
-                if have_this == 0:
-                    configs.append(config)
-        except Exception as e:
-            print(e)
-            print(ssr_url)
-            continue
-
-
 class ThreadCrawl(threading.Thread):
     def __init__(self, thread_name, idQueue):
         # 继承父类的方法
@@ -59,6 +41,8 @@ class ThreadCrawl(threading.Thread):
 
 
 if __name__ == '__main__':
+    retest_configs()
+
     my_chrome_driver.run_chrome()
     to_test_list = []
     to_test_list.extend(subscribe_crawler.get_from_subscribe())
