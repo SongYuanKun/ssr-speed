@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-from bin import my_chrome_driver
+from foo import my_chrome_driver
 
 logging.basicConfig(level=logging.INFO)
 
@@ -26,7 +26,7 @@ def query_from_free_ss():
 
     driver = webdriver.Chrome(executable_path=my_chrome_driver.chrome_driver_path,
                               options=chrome_options, desired_capabilities=capabilities)
-    driver.maximize_window()
+    driver.maximize_bindow()
     driver.get(url)
     driver.implicitly_wait(10)
     WebDriverWait(driver, 10, 0.5).until(
@@ -37,7 +37,7 @@ def query_from_free_ss():
 
 
 def get_from_youneed():
-    url = 'https://www.youneed.win/free-ss'
+    url = 'https://www.youneed.bin/free-ss'
     to_test_urls = []
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')

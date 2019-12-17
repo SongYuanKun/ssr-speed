@@ -1,8 +1,8 @@
 import threading
 from queue import Queue
 
-from bin import ssr_properties, my_speed_test, parse_url, ssr_crawler, my_chrome_driver, subscribe_crawler
-from bin.retest_configs import retest_configs
+from foo import ssr_properties, my_speed_test, parse_url, ssr_crawler, my_chrome_driver, subscribe_crawler
+from foo.retest_configs import retest_configs
 
 
 class ThreadCrawl(threading.Thread):

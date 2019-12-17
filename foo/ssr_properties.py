@@ -16,25 +16,25 @@ def save_properties(file_config):
 
 def write_test_json(write_config):
     # 打开ssr config json
-    json_path = r"D:\PycharmProjects\ssr-speed\win\gui-config.json"
+    json_path = r"D:\PycharmProjects\ssr-speed\bin\gui-config.json"
     write_configs(json_path, write_config)
 
 
 def write_test_json2(write_config):
     # 打开ssr config json
-    json_path = r"D:\PycharmProjects\ssr-speed\win\temp2\gui-config.json"
+    json_path = r"D:\PycharmProjects\ssr-speed\bin\temp2\gui-config.json"
     write_configs(json_path, write_config)
 
 
 def write_test_json3(write_config):
     # 打开ssr config json
-    json_path = r"D:\PycharmProjects\ssr-speed\win\temp3\gui-config.json"
+    json_path = r"D:\PycharmProjects\ssr-speed\bin\temp3\gui-config.json"
     write_configs(json_path, write_config)
 
 
 def write_test_json4(write_config):
     # 打开ssr config json
-    json_path = r"D:\PycharmProjects\ssr-speed\win\temp4\gui-config.json"
+    json_path = r"D:\PycharmProjects\ssr-speed\bin\temp4\gui-config.json"
     write_configs(json_path, write_config)
 
 

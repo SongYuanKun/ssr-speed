@@ -1,4 +1,4 @@
-from bin import ssr_properties, my_speed_test
+from foo import ssr_properties, my_speed_test
 
 
 def retest_configs():

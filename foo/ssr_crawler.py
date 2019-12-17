@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-from bin import my_chrome_driver
+from foo import my_chrome_driver
 
 logging.basicConfig(level=logging.INFO)
 
@@ -31,7 +31,7 @@ def get_from_ssr_share():
         'Sec-Fetch-Site': 'none',
         'Sec-Fetch-User': '?1',
         'Upgrade-Insecure-Requests': '1',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (bindows NT 10.0; bin64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
     to_test_urls = []
     try:
@@ -56,7 +56,7 @@ def get_from_ssrjiedian():
         'Accept-Language': 'zh-CN,zh;q=0.9',
         'Connection': 'keep-alive',
         'Upgrade-Insecure-Requests': '1',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (bindows NT 10.0; bin64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
     to_test_urls = []
     try:
@@ -91,7 +91,7 @@ def get_from_SSRSUB():
         'Accept-Language': 'zh-CN,zh;q=0.9',
         'Connection': 'keep-alive',
         'Upgrade-Insecure-Requests': '1',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (bindows NT 10.0; bin64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
     }
     to_test_urls = []
     try:
@@ -119,7 +119,7 @@ def get_from_SSRSUB():
 
 
 def get_from_youneed1():
-    url = 'https://www.youneed.win/free-ssr'
+    url = 'https://www.youneed.bin/free-ssr'
     to_test_urls = []
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
@@ -146,7 +146,7 @@ def get_from_youneed1():
 
 def get_from_youneed2():
     to_test_urls = []
-    url = 'https://www.youneed.win/free-ssr/2'
+    url = 'https://www.youneed.bin/free-ssr/2'
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
     chrome_options.add_argument('-no-sandbox')
@@ -172,7 +172,7 @@ def get_from_youneed2():
 
 def get_from_youneed3():
     to_test_urls = []
-    url = 'https://www.youneed.win/free-ssr/3'
+    url = 'https://www.youneed.bin/free-ssr/3'
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
     chrome_options.add_argument('-no-sandbox')

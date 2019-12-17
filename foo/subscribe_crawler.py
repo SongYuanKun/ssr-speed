@@ -1,8 +1,8 @@
 import base64
 from urllib import request
 
-from bin import ssr_properties
-from bin.parse_url import cleanupBase64
+from foo import ssr_properties
+from foo.parse_url import cleanupBase64
 
 
 def get_from_subscribe():

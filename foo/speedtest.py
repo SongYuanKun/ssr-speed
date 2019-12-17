@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/foo/env python
 # -*- coding: utf-8 -*-
 # Copyright 2012-2018 Matt Martz
 # All Rights Reserved.

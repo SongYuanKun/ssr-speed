@@ -6,7 +6,7 @@ import urllib.request
 from colorama import init, Fore
 from prettytable import PrettyTable
 
-from bin import parse_url
+from foo import parse_url
 
 test_option = {'ping': True, 'network': True, 'speed': True, 'youtube': False}
 
@@ -136,23 +136,23 @@ def drawtable(screen):
     while True:
         try:
             # print(key)
-            # window.addstr(ts.table_to_str())
-            # swin = curses.newwin(9, 20,20,10)
-            # swin.border(0, 0, 0, 0, 0, 0, 0, 0)
+            # bindow.addstr(ts.table_to_str())
+            # sbin = curses.newbin(9, 20,20,10)
+            # sbin.border(0, 0, 0, 0, 0, 0, 0, 0)
 
-            # curses.newwin(nlines, ncols)
-            # curses.newwin(nlines, ncols, begin_y, begin_x)
-            # Return a new window, whose left-upper corner is at (begin_y, begin_x), and whose height/width is nlines/ncols
+            # curses.newbin(nlines, ncols)
+            # curses.newbin(nlines, ncols, begin_y, begin_x)
+            # Return a new bindow, whose left-upper corner is at (begin_y, begin_x), and whose height/width is nlines/ncols
             if ss_select < ss_select_x: ss_select = ss_select_x
             if ss_select > max_select: ss_select = max_select
 
-            # wisn=curses.newwin(0, 4,0,0)
-            # twin = curses.newpad(table_line, table_cols)
+            # wisn=curses.newbin(0, 4,0,0)
+            # tbin = curses.newpad(table_line, table_cols)
             screen.clear()
             select_x = ss_select if ss_select < max_line else max_line - 1
             screen.addstr(int(select_x), 1, str("->"))
             screen.refresh()
-            # window.refresh([pminrow, pmincol, sminrow, smincol, smaxrow, smaxcol])
+            # bindow.refresh([pminrow, pmincol, sminrow, smincol, smaxrow, smaxcol])
 
             # screen.clear()
             # screen.addstr(0,0 , data)
@@ -162,7 +162,7 @@ def drawtable(screen):
             # spad.idlok(1)
             # spad.addstr(str(">"))
             # spad.refresh(ss_select,0,0,1,max_line,table_cols)
-            # twin.getch()
+            # tbin.getch()
             tpad = curses.newpad(table_line, table_cols)
             tpad.scrollok(1)
             tpad.idlok(1)
@@ -173,18 +173,18 @@ def drawtable(screen):
                 move_x = 0
             tpad.refresh(move_x, 0, table_y, table_x, max_line, table_cols)
 
-            # twin = curses.newwin(table_line, table_cols,table_y,table_x)
-            # # twin.border(0)
-            # twin.scrollok(1)
-            # twin.idlok(1)
+            # tbin = curses.newbin(table_line, table_cols,table_y,table_x)
+            # # tbin.border(0)
+            # tbin.scrollok(1)
+            # tbin.idlok(1)
             # # for x in range(0,20):
-            # # 	twin.addstr(0,2,str(x))
-            # # 	twin.scroll(1)
-            # twin.addstr(select_table.str())
-            # # twin.scroll(20)
-            # twin.refresh()
-            # twin.refresh(0,0,0,4,3,80)
-            # twin.getch()
+            # # 	tbin.addstr(0,2,str(x))
+            # # 	tbin.scroll(1)
+            # tbin.addstr(select_table.str())
+            # # tbin.scroll(20)
+            # tbin.refresh()
+            # tbin.refresh(0,0,0,4,3,80)
+            # tbin.getch()
 
             # mypadn = curses.newpad(30,4,10,0)
             # mypadn.scrollok(1)
@@ -196,11 +196,11 @@ def drawtable(screen):
 
             # screen.refresh()
 
-            # swin = curses.newwin(9, 20,10,10)
-            # swin.border(0, 0, 0, 0, 0, 0, 0, 0)
-            # swin.addstr(2, 4, "Time:          ")
-            # swin.addstr(4, 4, "Mines:         ")
-            # swin.refresh()
+            # sbin = curses.newbin(9, 20,10,10)
+            # sbin.border(0, 0, 0, 0, 0, 0, 0, 0)
+            # sbin.addstr(2, 4, "Time:          ")
+            # sbin.addstr(4, 4, "Mines:         ")
+            # sbin.refresh()
             key = screen.getch()
             if key in [curses.KEY_UP, ord('w'),
                        curses.KEY_DOWN, ord('s'),

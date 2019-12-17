@@ -1,6 +1,6 @@
 import subprocess
 
-chrome_driver_path = "D:\PycharmProjects\ssr-speed\win\chromedriver.exe"
+chrome_driver_path = "D:\PycharmProjects\ssr-speed\bin\chromedriver.exe"
 
 
 # 运行 chrome
