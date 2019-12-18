@@ -1,13 +1,9 @@
 import logging
-import re
 
 import pyperclip
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 
 from foo import my_chrome_driver
 
@@ -115,84 +111,6 @@ def get_from_SSRSUB():
                 to_test_urls.append(item4)
     except Exception as e:
         logging.error("SSRSUB请求失败", e)
-    return to_test_urls
-
-
-def get_from_youneed1():
-    url = 'https://www.youneed.bin/free-ssr'
-    to_test_urls = []
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
-    chrome_options.add_argument('-no-sandbox')
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome(executable_path=my_chrome_driver.chrome_driver_path,
-                              options=chrome_options)
-    driver.get(url)
-    try:
-        WebDriverWait(driver, 30, 0.5).until(
-            expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
-        html = BeautifulSoup(driver.page_source, 'html5lib')
-        driver.quit()
-        item_list = html.find_all("a", string=re.compile('右键复制链接'))
-        for item in item_list:
-            ssr_html = item['href']
-            if ssr_html.startswith("ss"):
-                to_test_urls.append(ssr_html)
-    except Exception as e:
-        logging.error("youneed1请求失败", e)
-    return to_test_urls
-
-
-def get_from_youneed2():
-    to_test_urls = []
-    url = 'https://www.youneed.bin/free-ssr/2'
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
-    chrome_options.add_argument('-no-sandbox')
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome(executable_path=my_chrome_driver.chrome_driver_path,
-                              options=chrome_options)
-    driver.get(url)
-    try:
-        WebDriverWait(driver, 30, 0.5).until(
-            expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
-        html = BeautifulSoup(driver.page_source, 'html5lib')
-        driver.quit()
-        item_list = html.find_all("a", string=re.compile('右键复制链接'))
-        for item in item_list:
-            ssr_html = item['href']
-            if ssr_html.startswith("ss"):
-                to_test_urls.append(ssr_html)
-    except Exception as e:
-        logging.error("youneed2请求失败", e)
-    return to_test_urls
-
-
-def get_from_youneed3():
-    to_test_urls = []
-    url = 'https://www.youneed.bin/free-ssr/3'
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
-    chrome_options.add_argument('-no-sandbox')
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome(executable_path=my_chrome_driver.chrome_driver_path,
-                              options=chrome_options)
-    driver.get(url)
-    try:
-        WebDriverWait(driver, 30, 0.5).until(
-            expected_conditions.visibility_of_element_located((By.LINK_TEXT, '右键复制链接')))
-        html = BeautifulSoup(driver.page_source, 'html5lib')
-        driver.quit()
-        item_list = html.find_all("a", string=re.compile('右键复制链接'))
-        for item in item_list:
-            ssr_html = item['href']
-            if ssr_html.startswith("ss"):
-                to_test_urls.append(ssr_html)
-    except Exception as e:
-        logging.error("youneed3请求失败", e)
     return to_test_urls
 
 
