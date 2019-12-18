@@ -51,7 +51,7 @@ def connect_ssr(ssr, port):
             result['ip'] = results_dict['client']['ip']
             print("speed_test,ping:%s,download:%s,upload:%s" % (result['ping'], result['download'], result['upload']))
 
-        result['state'] = "Success" and result['ping'] < 1
+        result['state'] = "Success"
         return result
 
     except Exception as e:
