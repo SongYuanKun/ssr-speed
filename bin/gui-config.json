@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "#3988/AS63949: Germany",
-            "id": "05263BC982C1673838A8AC34B4CBAFA4",
-            "server": "172.105.71.82",
-            "server_port": 8099,
+            "remarks": "@SSRSUB-\u52a0\u62ff\u5927A9-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
+            "id": "E301873A6679C5AEBA900DBAC4A32324",
+            "server": "ssr9.ssrsub.xyz",
+            "server_port": 9000,
             "server_udp_port": 0,
-            "password": "eIW0Dnk69454e6nSwuspv9DmS201tQ0D",
-            "method": "aes-256-cfb",
-            "protocol": "origin",
-            "protocolparam": "",
-            "obfs": "plain",
-            "obfsparam": "",
-            "remarks_base64": "IzM5ODgvQVM2Mzk0OTogR2VybWFueQ",
-            "group": "AutoSSR",
+            "password": "t.me/SSRSUB",
+            "method": "aes-256-ctr",
+            "protocol": "auth_aes128_md5",
+            "protocolparam": "t.me/SSRSUB",
+            "obfs": "tls1.2_ticket_auth",
+            "obfsparam": "\u4ed8\u8d39SSR\u6ce8\u518c:http://t.cn/EGJIyrl",
+            "remarks_base64": "QFNTUlNVQi3liqDmi7_lpKdBOS3ku5jotLlTU1LmjqjojZA6dC5jbi9FR0pJeXJs",
+            "group": "t.me/SSRSUB",
             "enable": true,
             "udp_over_tcp": false
         }
