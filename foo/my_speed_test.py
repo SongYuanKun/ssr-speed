@@ -122,4 +122,4 @@ def test_ssr(config, num):
         speed_result = connect_ssr(config, 6668)
         close_ssr4()
 
-    return speed_result['state'] == 'Success'
+    return speed_result['state'] == 'Success' and speed_result['ping'] < 1
