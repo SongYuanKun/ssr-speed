@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_skcloud-2-hk-7413.fastspeed.xyz",
-            "id": "11A430E159CA278F80FA8356083A69EA",
-            "server": "skcloud-2-hk-7413.fastspeed.xyz",
-            "server_port": 48392,
+            "remarks": "#D09B/AS174: United States",
+            "id": "3B501860AC85175F8C6F812F973C87AB",
+            "server": "192.240.99.182",
+            "server_port": 8097,
             "server_udp_port": 0,
-            "password": "UyAS2aUpZL412bOE",
-            "method": "chacha20",
-            "protocol": "auth_aes128_md5",
-            "protocolparam": "21309:rU7s9I",
-            "obfs": "http_simple",
-            "obfsparam": "4e36321309.cloudflare.com",
-            "remarks_base64": "QFNTUlRPT0xfc2tjbG91ZC0yLWhrLTc0MTMuZmFzdHNwZWVkLnh5eg",
-            "group": "SSRTOOL.COM \u63a8\u9001",
+            "password": "eIW0Dnk69454e6nSwuspv9DmS201tQ0D",
+            "method": "aes-256-cfb",
+            "protocol": "origin",
+            "protocolparam": "",
+            "obfs": "plain",
+            "obfsparam": "",
+            "remarks_base64": "I0QwOUIvQVMxNzQ6IFVuaXRlZCBTdGF0ZXM",
+            "group": "AutoSSR",
             "enable": true,
             "udp_over_tcp": false
         }
