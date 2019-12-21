@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "\u83ab\u65af\u79d1M",
-            "id": "13B57C226A274E3FDCB12526E9C1C219",
-            "server": "45.144.2.235",
-            "server_port": 30,
+            "remarks": "@SSRSUB-\u7f8e\u56fdC10-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
+            "id": "289F593AF1D22E036286E783AB264F31",
+            "server": "192.240.99.182",
+            "server_port": 8097,
             "server_udp_port": 0,
-            "password": "lncn.org 5rf",
-            "method": "rc4-md5",
+            "password": "eIW0Dnk69454e6nSwuspv9DmS201tQ0D",
+            "method": "aes-256-cfb",
             "protocol": "origin",
-            "protocolparam": "",
+            "protocolparam": "t.me/SSRSUB",
             "obfs": "plain",
-            "obfsparam": "",
-            "remarks_base64": "6I6r5pav56eRTQ",
-            "group": "Lncn.org",
+            "obfsparam": "\u4ed8\u8d39SSR\u6ce8\u518c:http://t.cn/EGJIyrl",
+            "remarks_base64": "QFNTUlNVQi3nvo7lm71DMTAt5LuY6LS5U1NS5o6o6I2QOnQuY24vRUdKSXlybA",
+            "group": "t.me/SSRSUB",
             "enable": true,
             "udp_over_tcp": false
         }
