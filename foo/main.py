@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 if to_test_list.__len__() > 0:
                     ThreadCrawl.idQueue.put(json.dumps(parse_url.ssr2json(to_test_list[-1])))
                     to_test_list.pop()
-                elif ThreadCrawl.configs.__len__() > 0:
+                elif configs.__len__() > 0:
                     ThreadCrawl.idQueue.put(json.dumps(configs[-1]))
                     configs.pop()
 
