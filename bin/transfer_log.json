@@ -36,7 +36,23 @@
 		"totalDownloadBytes" : 4649
 	},
 	"198.255.103.62" : {
+		"totalUploadBytes" : 1210,
+		"totalDownloadBytes" : 9298
+	},
+	"172.105.192.135" : {
+		"totalUploadBytes" : 4080,
+		"totalDownloadBytes" : 39775
+	},
+	"210.203.20.91" : {
+		"totalUploadBytes" : 1229,
+		"totalDownloadBytes" : 4766
+	},
+	"139.162.15.45" : {
 		"totalUploadBytes" : 605,
 		"totalDownloadBytes" : 4649
+	},
+	"211.21.214.234" : {
+		"totalUploadBytes" : 605,
+		"totalDownloadBytes" : 4612
 	}
 }

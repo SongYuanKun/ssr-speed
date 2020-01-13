@@ -106,5 +106,5 @@ def ssDecode(text):
 
 if __name__ == '__main__':
     result = ssr2json(
-        "ss://YWVzLTI1Ni1jZmI6OWQ2Y2NlYWEzNzNiZjJjOGFjYjIyZTYwYjZhNThiZTZANDUuNTYuMTAxLjEyMzo0NDM=")
+        "ss://eGNoYWNoYTIwLWlldGYtcG9seTEzMDU6dC5tZS9TU1JTVUI=@v9.ssrsub.xyz:8080/?plugin=obfs-local%3Bobfs%3Dhttp%3Bobfs-host%3Ddata.video.qiyi.com#@SSRSUB-%E5%8A%A0%E6%8B%BF%E5%A4%A79-%E4%BB%98%E8%B4%B9SSR%E6%8E%A8%E8%8D%90:t.cn/EGJIyrl")
     print(result)

@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_microsofthk4.host-sub.com",
-            "id": "7A6B690506BC624795E998C642A5CAD1",
-            "server": "microsofthk4.host-sub.com",
-            "server_port": 443,
+            "remarks": "@SSRSUB-\u7f8e\u56fdD8-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
+            "id": "864763C800411F84BD255643F85FDC5C",
+            "server": "173.82.120.209",
+            "server_port": 12345,
             "server_udp_port": 0,
-            "password": "jRJFMw",
-            "method": "chacha20",
-            "protocol": "auth_aes128_md5",
-            "protocolparam": "37222:5psiz2h2ei7",
-            "obfs": "http_simple",
-            "obfsparam": "02d5537222.microsoft.com",
-            "remarks_base64": "QFNTUlRPT0xfbWljcm9zb2Z0aGs0Lmhvc3Qtc3ViLmNvbQ",
-            "group": "SSRTOOL.COM \u63a8\u9001",
+            "password": "12345",
+            "method": "rc4-md5",
+            "protocol": "auth_sha1_v4",
+            "protocolparam": "",
+            "obfs": "plain",
+            "obfsparam": "",
+            "remarks_base64": "QFNTUlNVQi3nvo7lm71EOC3ku5jotLlTU1LmjqjojZA6dC5jbi9FR0pJeXJs",
+            "group": "t.me/SSRSUB",
             "enable": true,
             "udp_over_tcp": false
         }

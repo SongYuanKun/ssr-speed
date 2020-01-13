@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_uslaxbgp24.host-sub.com",
-            "id": "FE86E02590455FD861A745C503B11254",
-            "server": "uslaxbgp24.host-sub.com",
-            "server_port": 443,
+            "remarks": "@SSRSUB-\u4fc4\u7f57\u65afD9-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
+            "id": "A03A78BDB9B90F0A21E63A1102F9903B",
+            "server": "91.245.227.135",
+            "server_port": 12345,
             "server_udp_port": 0,
-            "password": "jRJFMw",
-            "method": "chacha20",
-            "protocol": "auth_aes128_md5",
-            "protocolparam": "37222:5psiz2h2ei7",
-            "obfs": "http_simple",
-            "obfsparam": "02d5537222.microsoft.com",
-            "remarks_base64": "QFNTUlRPT0xfdXNsYXhiZ3AyNC5ob3N0LXN1Yi5jb20",
-            "group": "SSRTOOL.COM \u63a8\u9001",
+            "password": "12345",
+            "method": "rc4-md5",
+            "protocol": "auth_sha1_v4",
+            "protocolparam": "",
+            "obfs": "plain",
+            "obfsparam": "",
+            "remarks_base64": "QFNTUlNVQi3kv4TnvZfmlq9EOS3ku5jotLlTU1LmjqjojZA6dC5jbi9FR0pJeXJs",
+            "group": "t.me/SSRSUB",
             "enable": true,
             "udp_over_tcp": false
         }

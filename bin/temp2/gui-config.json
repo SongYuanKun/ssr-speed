@@ -1,19 +1,19 @@
 {
     "configs": [
         {
-            "remarks": "@SSRTOOL_microsofthk2.host-sub.com",
-            "id": "A3E9BF5BE652722F8DEBBCE0F404C18A",
-            "server": "microsofthk2.host-sub.com",
-            "server_port": 443,
+            "remarks": "@SSRSUB-\u4fc4\u7f57\u65afD10-\u4ed8\u8d39SSR\u63a8\u8350:t.cn/EGJIyrl",
+            "id": "BD4465779FF1B9A28AA1C111581E86F6",
+            "server": "45.129.185.152",
+            "server_port": 9500,
             "server_udp_port": 0,
-            "password": "jRJFMw",
-            "method": "chacha20",
+            "password": "http://t.cn/EGJIyrl",
+            "method": "aes-256-ctr",
             "protocol": "auth_aes128_md5",
-            "protocolparam": "37222:5psiz2h2ei7",
-            "obfs": "http_simple",
-            "obfsparam": "02d5537222.microsoft.com",
-            "remarks_base64": "QFNTUlRPT0xfbWljcm9zb2Z0aGsyLmhvc3Qtc3ViLmNvbQ",
-            "group": "SSRTOOL.COM \u63a8\u9001",
+            "protocolparam": "t.me/SSRSUB",
+            "obfs": "tls1.2_ticket_auth",
+            "obfsparam": "\u4ed8\u8d39SSR\u6ce8\u518c:http://t.cn/EGJIyrl",
+            "remarks_base64": "QFNTUlNVQi3kv4TnvZfmlq9EMTAt5LuY6LS5U1NS5o6o6I2QOnQuY24vRUdKSXlybA",
+            "group": "t.me/SSRSUB",
             "enable": true,
             "udp_over_tcp": false
         }
