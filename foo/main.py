@@ -1,6 +1,6 @@
 import json
 
-from bin import parse_url
+from foo import parse_url
 
 from foo import ssr_properties, my_chrome_driver, subscribe_crawler, ssr_crawler, ss_crawler
 from foo.ThreadCrawl import ThreadCrawl
