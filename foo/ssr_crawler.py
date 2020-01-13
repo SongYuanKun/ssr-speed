@@ -1,9 +1,7 @@
 import logging
 
-import pyperclip
 import requests
 from bs4 import BeautifulSoup
-from selenium import webdriver
 
 from foo import my_chrome_driver
 
@@ -79,7 +77,7 @@ def get_from_ssrjiedian():
     return to_test_urls
 
 
-def get_from_SSRSUB():
+def get_from_ssr_sub():
     url = 'https://t.me/s/SSRSUB'
     headers = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -114,27 +112,6 @@ def get_from_SSRSUB():
     return to_test_urls
 
 
-def get_from_lncn():
-    to_test_urls = []
-    url = 'https://lncn.org/'
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
-    chrome_options.add_argument('-no-sandbox')
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome(executable_path=my_chrome_driver.chrome_driver_path,
-                              options=chrome_options)
-    driver.get(url)
-    driver.implicitly_wait(10)
-    try:
-        driver.find_elements_by_xpath('//*[@id="app"]/div[2]/div/div[2]/div/div[1]/div[4]/button')[0].click()
-        to_test_urls = pyperclip.paste().split(',')
-    except Exception as e:
-        logging.error("lncn请求失败", e)
-    driver.quit()
-    return to_test_urls
-
-
 def format_response(response):
     html = response.content.decode('utf-8') \
         .replace("\\\"", "").replace("\\r", "") \
@@ -144,4 +121,5 @@ def format_response(response):
 
 
 if __name__ == "__main__":
-    get_from_lncn()
+    my_chrome_driver.run_chrome()
+    get_from_ssr_sub()

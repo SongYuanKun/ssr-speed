@@ -18,8 +18,8 @@ def query_from_free_ss():
     to_test_urls = []
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
-    # chrome_options.add_argument('--headless')
-    # chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
     capabilities = DesiredCapabilities.CHROME.copy()
     capabilities['acceptSslCerts'] = True
     capabilities['acceptInsecureCerts'] = True
@@ -28,7 +28,7 @@ def query_from_free_ss():
                               options=chrome_options, desired_capabilities=capabilities)
     driver.get(url)
     driver.implicitly_wait(10)
-    WebDriverWait(driver, 10, 0.5).until(
+    WebDriverWait(driver, 30, 1).until(
         expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, '#tbss tbody tr')))
     print(driver.page_source)
     driver.quit()
