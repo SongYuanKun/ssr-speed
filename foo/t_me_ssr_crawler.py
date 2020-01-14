@@ -87,5 +87,10 @@ def get_from_9():
     return query(url)
 
 
+def get_from_10():
+    url = 'https://t.me/s/woyaofq'
+    return query(url)
+
+
 if __name__ == '__main__':
     print(get_from_4())
