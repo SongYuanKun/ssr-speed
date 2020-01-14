@@ -27,6 +27,7 @@ def query(url):
     try:
         response = requests.get(url, headers=headers, proxies=html_util.proxy_handler, timeout=2)
         html = html_util.format_response(response)
+        requests.session().close()
         item_list = html.find_all("div", class_="tgme_widget_message_text js-message_text")
         list1 = []
         for item in item_list:
@@ -36,32 +37,55 @@ def query(url):
                 to_test_urls.append(item4)
     except Exception as e:
         logging.error(url + "请求失败", e)
+        requests.session().close()
     return to_test_urls
 
 
-def get_from_ssr_share():
+def get_from_1():
     url = 'https://t.me/s/ssrshares'
     return query(url)
 
 
-def get_from_free_shadow_sock():
+def get_from_2():
     url = 'https://t.me/s/freeshadowsock'
     return query(url)
 
 
-def get_from_lran_ssr():
+def get_from_3():
     url = 'https://t.me/s/lRANSSR'
     to_test_urls = []
     return query(url)
 
 
-def get_from_ssr_sub():
+def get_from_4():
     url = 'https://t.me/s/SSRSUB'
     return query(url)
 
 
+def get_from_5():
+    url = 'https://t.me/s/gudaocesu'
+    return query(url)
+
+
+def get_from_6():
+    url = 'https://t.me/s/ssr_v2'
+    return query(url)
+
+
+def get_from_7():
+    url = 'https://t.me/s/jcfabu'
+    return query(url)
+
+
+def get_from_8():
+    url = 'https://t.me/s/FreeSSRNode'
+    return query(url)
+
+
+def get_from_9():
+    url = 'https://t.me/s/vpn_lulula'
+    return query(url)
+
+
 if __name__ == '__main__':
-    print(get_from_lran_ssr())
-    print(get_from_free_shadow_sock())
-    print(get_from_ssr_share())
-    print(get_from_ssr_sub())
+    print(get_from_4())
