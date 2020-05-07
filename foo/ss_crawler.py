@@ -17,7 +17,7 @@ def query_from_free_ss():
 
     to_test_urls = []
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1081')
+    chrome_options.add_argument('--proxy-server=http://127.0.0.1:1080')
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     capabilities = DesiredCapabilities.CHROME.copy()

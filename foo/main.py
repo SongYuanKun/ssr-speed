@@ -20,7 +20,6 @@ if __name__ == '__main__':
     to_test_list.extend(t_me_ssr_crawler.get_from_8())
     to_test_list.extend(t_me_ssr_crawler.get_from_9())
     to_test_list.extend(t_me_ssr_crawler.get_from_10())
-    print('to_test_urls=', to_test_list)
 
     while True:
         crawlList = [1, 2, 3, 4]
