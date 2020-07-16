@@ -3,12 +3,15 @@ import hashlib
 
 
 def ssr2json(text):
-    if text.startswith('ssr://'):
-        text = text[6:]
-        return ssrDecode(text)
-    elif text.startswith('ss://'):
-        text = text[5:]
-        return ssDecode(text)
+    try:
+        if text.startswith('ssr://'):
+            text = text[6:]
+            return ssrDecode(text)
+        elif text.startswith('ss://'):
+            text = text[5:]
+            return ssDecode(text)
+    except Exception as e:
+        print(e)
     return
 
 
