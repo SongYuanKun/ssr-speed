@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 
 proxy_handler = {
-    'http': '127.0.0.1:1081',
-    'https': '127.0.0.1:1081'
+    'http': '127.0.0.1:1080',
+    'https': '127.0.0.1:1080'
 }
 
 

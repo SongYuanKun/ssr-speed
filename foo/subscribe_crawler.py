@@ -9,7 +9,7 @@ from foo.parse_url import cleanupBase64
 def get_from_subscribe():
     properties = ssr_properties.get_properties()
     to_test_url = []
-    proxies = {'http': 'http://localhost:1081', 'https': 'http://localhost:1081'}
+    proxies = {'http': 'http://localhost:1080', 'https': 'http://localhost:1080'}
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'}
     for serverSubscribe in properties['serverSubscribes']:
         try:
